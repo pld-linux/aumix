@@ -6,23 +6,23 @@ Summary(pl):	Mikser audio bazuj╠cy na curses
 Summary(ru):	Аудио микшер на базе библиотеки curses
 Summary(uk):	Ауд╕о м╕кшер, базований на б╕блиотец╕ curses
 Name:		aumix
-Version:	2.1
+Version:	2.2
 Release:	1
 License:	GPL
 Group:		Applications/Sound
 Group(pl):	Aplikacje/D╪wiЙk
 Source0:	http://www.jpj.net/~trevor/aumix/%{name}-%{version}.tar.gz
-Source1:	xaumix.desktop
+#Source1:	xaumix.desktop
+Source2:	aumix.desktop
 Patch0:		aumix-home_etc.patch
-Patch1:		aumix-gtk.patch
-Patch2:		aumix-pl.po.patch
+Patch1:		aumix-pl.po.patch
 URL:		http://www.jpj.net/~trevor/aumix.html
 BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	gpm-devel
 BuildRequires:	gettext-devel
-#BuildRequires:	XFree86-devel
-#BuildRequires:	gtk+-devel >= 1.2.0
-#BuildRequires:	glib-devel >= 1.2.0
+BuildRequires:	XFree86-devel
+BuildRequires:	gtk+-devel >= 1.2.0
+BuildRequires:	glib-devel >= 1.2.0
 BuildRoot:	/tmp/%{name}-%{version}-root
 
 %define		_applnkdir	/usr/X11R6/share/applnk
@@ -64,11 +64,11 @@ CD, микрофона, синтезаторов на звуковой плате, так и выходной уровень.
 картки. Вона дозволя╓ зм╕нювати як вх╕дн╕ р╕вн╕ сигнал╕в з CD, м╕крофону,
 синтезатор╕в на звуков╕й плат╕, так ╕ вих╕дний р╕вень.
 
+
 %prep
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
 
 %build
 autoconf
@@ -77,8 +77,7 @@ gettextize --copy --force
 CFLAGS="$RPM_OPT_FLAGS -I/usr/include/ncurses"
 LDFLAGS="-s"
 export CFLAGS LDFLAGS
-%configure \
-	--without-gtk
+%configure 
 
 make
 
@@ -93,7 +92,7 @@ mv $RPM_BUILD_ROOT%{_bindir}/xaumix $RPM_BUILD_ROOT/usr/X11R6/bin
 mv $RPM_BUILD_ROOT%{_datadir}/aumix/*xpm \
 	$RPM_BUILD_ROOT/usr/X11R6/share/pixmaps
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Multimedia
+install %{SOURCE2} $RPM_BUILD_ROOT%{_applnkdir}/Multimedia
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/* \
 	AUTHORS BUGS ChangeLog NEWS README 
@@ -111,7 +110,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) /usr/X11R6/bin/xaumix
 
 /usr/X11R6/share/pixmaps/*.xpm
-%{_applnkdir}/Multimedia/xaumix.desktop
+%{_applnkdir}/Multimedia/aumix.desktop
 
 %{_datadir}/aumix
 %{_mandir}/man1/*
