@@ -2,7 +2,7 @@
 #
 # aumix		Sound mixer setup.
 #
-# chkconfig:    345  85 15
+# chkconfig:	345 85 15
 #
 # description:	Saves sound mixer's settings on system shutdown and restores
 #		them on system startup.
@@ -28,7 +28,7 @@ case "$1" in
 	else
 		nls "Sound card mixer is already set up"
 	fi
-        ;;
+	;;
   stop)
 	if [ -f /var/lock/subsys/aumix ]; then
 		show "Saving sound card mixer's settings"
@@ -41,15 +41,15 @@ case "$1" in
 	else
 		nls "Sound card mixer hasn't been set up"
 	fi	
-        ;;
+	;;
   restart|force-reload)
-        $0 stop
+	$0 stop
 	$0 start
 	exit $0
-        ;;
+	;;
   save)
 	run_cmd "Saving sound card mixer's settings" aumix -f /etc/aumixrc -S
-  	;;
+	;;
   restore|reload)
 	show "Setting up sound card mixer"
 	busy
@@ -74,15 +74,15 @@ case "$1" in
 			if [ $? = 0 ]; then
 				nls "MIDI device not detected."
 			fi
-		fi    
+		fi
 
 	else
 		nls "Sound card not configured."
-        fi
-        ;;
+	fi
+	;;
   *)
 	msg_usage "$0 {start|stop|restart|reload|force-reload|save|restore|status}"
-        exit 3
+	exit 3
 esac
 
 exit $RETVAL
