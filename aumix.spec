@@ -1,17 +1,17 @@
 Summary:	curses based audio mixer
 Summary(fr):	Mixer audio basИ sur curses
 Summary(tr):	Metin ekranlЩ ses karЩЧtЩrЩcЩ
-Summary(pl):	mikser audio bazuj╠cy na curses
+Summary(pl):	Mikser audio bazuj╠cy na curses
 Summary(ru):	Аудио микшер на базе библиотеки curses
 Summary(ua):	Ауд╕о м╕кшер, базований на б╕блиотец╕ curses
 Name:		aumix
-Version:	1.25
+Version:	1.25.1
 Release:	1
 Copyright:	GPL
 Group:		Applications/Sound
 Group(pl):	Aplikacje/D╪wiЙk
-URL:            http://www.jpj.net/~trevor/aumix.html
 Source:		http://www.jpj.net/~trevor/aumix/%{name}-%{version}.tar.gz
+URL:            http://www.jpj.net/~trevor/aumix.html
 BuildRequires:	ncurses-devel
 BuildRequires:	gpm-devel
 BuildRoot:	/tmp/%{name}-%{version}-root
