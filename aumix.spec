@@ -134,8 +134,7 @@ gzip -9nf AUTHORS BUGS ChangeLog NEWS README TODO
 %find_lang %{name}
 
 %post OSS-preserve-settings
-
-%chkconfig_posst
+/sbin/chkconfig --add aumix
 if [ ! -f /var/lock/subsys/aumix ]; then
 	echo "Run \"/etc/rc.d/init.d/aumix start\" to initialize saving/restoring"
 	echo "sound card mixer's settings on system shutdown/startup, and then"
@@ -143,7 +142,12 @@ if [ ! -f /var/lock/subsys/aumix ]; then
 fi
 
 %preun OSS-preserve-settings
-%chkconfig_del
+if [ "$1" = "0" ]; then
+	if [ -f /var/lock/subsys/aumix ]; then
+		/etc/rc.d/init.d/aumix stop
+	fi
+	/sbin/chkconfig --del aumix
+fi
 
 %clean
 rm -rf $RPM_BUILD_ROOT
