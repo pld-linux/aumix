@@ -87,9 +87,9 @@ CD, м╕крофону, синтезатор╕в на звуков╕й плат╕, так ╕ вих╕дний р╕вень.
 Summary:	Saves/restores mixer settings on system shutdown/startup
 Summary(pl):	Zapisuje/odtwarza ustawienia przy zamkniЙciu/starcie systemu
 Group:		Applications/Sound
-Requires:	%{name} = %{version}
 PreReq:		rc-scripts >= 0.2.0
 Requires(post,preun):	/sbin/chkconfig
+Requires:	%{name} = %{version}-%{release}
 Obsoletes:	aumix-OSS-preserve-settings
 Obsoletes:	rhsound
 Conflicts:	alsa-utils
@@ -105,13 +105,11 @@ systemu.
 
 %prep
 %setup -q
-#%patch0 -p1
+%patch0 -p1
 %patch1 -p1
 %patch2 -p1
 
 %build
-#rm -f missing acinclude.m4
-rm -f missing
 #%%{__gettextize}
 %{__aclocal}
 %{__autoconf}
