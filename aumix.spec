@@ -1,14 +1,16 @@
 # NOTE:		Please keep in sync with aumix-gtk.
 Summary:	curses based audio mixer
 Summary(de):	Audio-Mixer auf curses-Basis
+Summary(es):	Mezclador de audio basado en curses
 Summary(fr):	Mixer audio basé sur curses
 Summary(tr):	Metin ekranlý ses karýþtýrýcý
 Summary(pl):	Mikser audio bazuj±cy na curses
+Summary(pt_BR):	Mixador de áudio baseado em curses
 Summary(ru):	áÕÄÉÏ ÍÉËÛÅÒ ÎÁ ÂÁÚÅ ÂÉÂÌÉÏÔÅËÉ curses
 Summary(uk):	áÕÄ¦Ï Í¦ËÛÅÒ, ÂÁÚÏ×ÁÎÉÊ ÎÁ Â¦ÂÌÉÏÔÅÃ¦ curses
 Name:		aumix
 Version:	2.7
-Release:	6
+Release:	9
 License:	GPL
 Group:		Applications/Sound
 Source0:	http://www.jpj.net/~trevor/aumix/%{name}-%{version}.tar.gz
@@ -16,7 +18,7 @@ Source1:	%{name}.init
 Source2:	%{name}.sysconfig
 Source3:	x%{name}.desktop
 Patch0:		%{name}-home_etc.patch
-Patch1:		%{name}-xaumix.patch
+Patch1:		%{name}-x%{name}.patch
 Patch2:		%{name}-ac250.patch
 URL:		http://www.jpj.net/~trevor/aumix.html
 BuildRequires:	autoconf
@@ -26,6 +28,7 @@ BuildRequires:	gettext-devel
 BuildRequires:	ncurses-devel >= 5.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	aumix-gtk
+Obsoletes:	aumix-X11
 
 %define		_xbindir	/usr/X11R6/bin
 %define		_xdatadir	/usr/X11R6/share
@@ -42,6 +45,12 @@ Steuerung eines Soundkarten-Mixers. Sie können damit die Eingangspegel
 der CD, des Mikrophons und von Synthesizer-Karten sowie auch die
 Ausgabelautstärke regeln.
 
+%description -l es
+Este programa nos ofrece un método interactivo basado en tty de
+control de mezclas de tarjetas de sonido. Deja que se ajuste los
+niveles de entrada del CD, micrófono, y sintetizadores, así como el
+volumen de salida.
+
 %description -l fr
 Ce programme offre une méthode intaractive en mode texte pour
 contrôler le mixer des cartes son. Il permet d'ajuster les niveaux
@@ -53,6 +62,12 @@ Ten pakiet dostarcza bazuj±c± na tty, interaktywn± metodê
 kontrolowania miksera karty d¼wiêkowej. aumix pozwala zmieniaæ poziom
 sygna³u nadchodz±cego z CD, mikrofonu i syntetyzerów, a tak¿e poziom
 sygna³u wyj¶ciowego.
+
+%description -l pt_BR
+Este programa oferece um método interativo baseado em tty de controle
+de mixagem de placas de som. Ele deixa você ajustar os níveis de
+entrada do CD, microfone, e sintetizadores assim como o volume de
+saída.
 
 %description -l tr
 Bu program metin ekranda, etkileþimli olarak ses kartý mixer denetimi
@@ -102,7 +117,7 @@ aclocal
 autoconf
 automake -a -c -f
 
-CPPFLAGS="-I/usr/include/ncurses" \
+CPPFLAGS="-I%{_includedir}/ncurses" \
 %configure \
 	--without-gtk
 
