@@ -8,22 +8,29 @@ Summary(ru):	Аудио микшер на базе библиотеки curses
 Summary(uk):	Ауд╕о м╕кшер, базований на б╕блиотец╕ curses
 Name:		aumix
 Version:	2.7
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/Sound
+Group(de):	Applikationen/Laut
 Group(pl):	Aplikacje/D╪wiЙk
 Source0:	http://www.jpj.net/~trevor/aumix/%{name}-%{version}.tar.gz
-Source1:	aumix.init
-Source2:	xaumix.desktop
-Patch0:		aumix-home_etc.patch
-Patch1:		aumix-xaumix.patch
+Source1:	%{name}.init
+Source2:	%{name}.sysconfig
+Source3:	x%{name}.desktop
+Patch0:		%{name}-home_etc.patch
+Patch1:		%{name}-xaumix.patch
 URL:		http://www.jpj.net/~trevor/aumix.html
+BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	gpm-devel
 BuildRequires:	gettext-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	aumix-gtk
+
+%define		_xbindir	/usr/X11R6/bin
+%define		_xdatadir	/usr/X11R6/share
+%define		_xmandir	/usr/X11R6/man
 
 %description
 This program provides a tty-based, interactive method of controlling a
@@ -68,6 +75,7 @@ CD, м╕крофону, синтезатор╕в на звуков╕й плат╕, так ╕ вих╕дний р╕вень.
 Summary:	Saves/restores mixer settings on system shutdown/startup
 Summary(pl):	Zapisuje/odtwarza ustawienia przy zamkniЙciu/starcie systemu
 Group:		Applications/Sound
+Group(de):	Applikationen/Laut
 Group(pl):	Aplikacje/D╪wiЙk
 Requires:	%{name} = %{version}
 Prereq:		rc-scripts >= 0.2.0
@@ -89,36 +97,35 @@ systemu.
 %patch1 -p1
 
 %build
-automake
+aclocal
 autoconf
+automake -a -c
 gettextize --copy --force
 
-CFLAGS="$RPM_OPT_FLAGS -I/usr/include/ncurses"
-LDFLAGS="-s"
-export CFLAGS LDFLAGS
+CFLAGS="%{rpmcflags} -I/usr/include/ncurses"
 %configure --without-gtk
 
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_applnkdir}/Multimedia \
-$RPM_BUILD_ROOT%{_prefix}/X11R6/{bin,share/pixmaps} \
-	$RPM_BUILD_ROOT%{_sysconfdir}/rc.d/init.d
+install -d $RPM_BUILD_ROOT{%{_applnkdir}/Multimedia,%{_pixmapsdir}} \
+	$RPM_BUILD_ROOT{%{_xbindir},%{_xmandir}/man1} \
+	$RPM_BUILD_ROOT/etc/{rc.d/init.d,sysconfig}
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
-mv $RPM_BUILD_ROOT%{_bindir}/xaumix $RPM_BUILD_ROOT%{_prefix}/X11R6/bin
-mv $RPM_BUILD_ROOT%{_datadir}/aumix/*xpm \
-$RPM_BUILD_ROOT%{_prefix}/X11R6/share/pixmaps
+mv -f $RPM_BUILD_ROOT%{_bindir}/xaumix $RPM_BUILD_ROOT%{_xbindir}
+mv -f $RPM_BUILD_ROOT%{_mandir}/man1/xaumix* $RPM_BUILD_ROOT%{_xmandir}/man1
+mv -f $RPM_BUILD_ROOT%{_datadir}/aumix/*xpm $RPM_BUILD_ROOT%{_pixmapsdir}
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/rc.d/init.d/aumix
-install %{SOURCE2} $RPM_BUILD_ROOT%{_applnkdir}/Multimedia
+install %{SOURCE1} $RPM_BUILD_ROOT/etc/rc.d/init.d/aumix
+install %{SOURCE2} $RPM_BUILD_ROOT/etc/sysconfig/aumix
+install %{SOURCE3} $RPM_BUILD_ROOT%{_applnkdir}/Multimedia
 
 touch $RPM_BUILD_ROOT%{_sysconfdir}/aumixrc
 
-gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/* \
-	AUTHORS BUGS ChangeLog NEWS README 
+gzip -9nf AUTHORS BUGS ChangeLog NEWS README TODO
 
 %find_lang %{name}
 
@@ -143,19 +150,19 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-
-%config(noreplace,missingok) %{_sysconfdir}/aumixrc
-%doc {AUTHORS,BUGS,ChangeLog,NEWS,README}.gz
+%doc {AUTHORS,BUGS,ChangeLog,NEWS,README,TODO}.gz
+%config(noreplace,missingok) %verify(not size mtime md5) %{_sysconfdir}/aumixrc
 
 %attr(755,root,root) %{_bindir}/aumix
-%attr(755,root,root) %{_prefix}/X11R6/bin/xaumix
-
-%{_prefix}/X11R6/share/pixmaps/*.xpm
-%{_applnkdir}/Multimedia/xaumix.desktop
-
-%{_datadir}/aumix
 %{_mandir}/man1/*
+%{_datadir}/aumix
+
+%attr(755,root,root) %{_xbindir}/xaumix
+%{_xmandir}/man1/*
+%{_pixmapsdir}/*.xpm
+%{_applnkdir}/Multimedia/xaumix.desktop
 
 %files OSS-preserve-settings
 %defattr(644,root,root,755)
-%attr(754,root,root) %{_sysconfdir}/rc.d/init.d/aumix
+%attr(754,root,root) /etc/rc.d/init.d/aumix
+%config(noreplace) %verify(not size mtime md5) /etc/sysconfig/aumix

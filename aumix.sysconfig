@@ -1,0 +1,7 @@
+# Customized settings for aumix-OSS-preserve-settings
+
+# Do you want mixer settings to be initialized on boot?
+AUMIX_AUTO_INIT=yes
+
+# Do you want mixer settings to be saved on shutdown?
+AUMIX_AUTO_SAVE=yes
