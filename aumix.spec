@@ -5,7 +5,7 @@ Summary(pl):	mikser audio bazuj╠cy na curses
 Summary(ru):	Аудио микшер на базе библиотеки curses
 Summary(ua):	Ауд╕о м╕кшер, базований на б╕блиотец╕ curses
 Name:		aumix
-Version:	1.24
+Version:	1.25
 Release:	1
 Copyright:	GPL
 Group:		Applications/Sound
@@ -62,8 +62,8 @@ gettextize --copy --force
 CFLAGS="$RPM_OPT_FLAGS -I/usr/include/ncurses"
 LDFLAGS="-s"
 export CFLAGS LDFLAGS
-%configure \
-	--without-alsa
+%configure 
+
 make 
 
 %install
