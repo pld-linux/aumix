@@ -59,6 +59,7 @@ CD, м╕крофону, синтезатор╕в на звуков╕й плат╕, так ╕ вих╕дний р╕вень.
 %patch0 -p1
 
 %build
+autoconf
 CFLAGS="$RPM_OPT_FLAGS -I%{_includedir}/ncurses" LDFLAGS="-s" \
 ./configure %{_target} \
 	--prefix=%{_prefix}
