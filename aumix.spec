@@ -16,7 +16,7 @@ Group:		Applications/Sound
 Source0:	http://www.jpj.net/~trevor/aumix/%{name}-%{version}.tar.gz
 Source1:	%{name}.init
 Source2:	%{name}.sysconfig
-Source3:	x%{name}.desktop
+Source3:	%{name}.desktop
 Source4:	%{name}.png
 Patch0:		%{name}-home_etc.patch
 Patch1:		%{name}-x%{name}.patch
@@ -31,10 +31,6 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	aumix-gtk
 Obsoletes:	aumix-X11
 Conflicts:	aumix-gtk
-
-%define		_xbindir	/usr/X11R6/bin
-%define		_xdatadir	/usr/X11R6/share
-%define		_xmandir	/usr/X11R6/man
 
 %description
 This program provides a tty-based, interactive method of controlling a
@@ -119,8 +115,9 @@ rm -f missing acinclude.m4
 %{__autoconf}
 %{__automake}
 
-CPPFLAGS="-I%{_includedir}/ncurses" \
+CPPFLAGS="-I/usr/include/ncurses" \
 %configure \
+	--with-ncurses \
 	--without-gtk
 
 %{__make}
@@ -128,13 +125,11 @@ CPPFLAGS="-I%{_includedir}/ncurses" \
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_applnkdir}/Multimedia,%{_pixmapsdir}} \
-	$RPM_BUILD_ROOT{%{_xbindir},%{_xmandir}/man1} \
+	$RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1} \
 	$RPM_BUILD_ROOT/etc/{rc.d/init.d,sysconfig}
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
-
-mv -f $RPM_BUILD_ROOT%{_bindir}/xaumix $RPM_BUILD_ROOT%{_xbindir}
-mv -f $RPM_BUILD_ROOT%{_mandir}/man1/xaumix* $RPM_BUILD_ROOT%{_xmandir}/man1
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/rc.d/init.d/aumix
 install %{SOURCE2} $RPM_BUILD_ROOT/etc/sysconfig/aumix
@@ -173,10 +168,8 @@ fi
 %{_mandir}/man1/*
 %{_datadir}/aumix
 
-%attr(755,root,root) %{_xbindir}/xaumix
-%{_xmandir}/man1/*
 %{_pixmapsdir}/*.png
-%{_applnkdir}/Multimedia/xaumix.desktop
+%{_applnkdir}/Multimedia/aumix.desktop
 
 %files OSS-preserve-settings
 %defattr(644,root,root,755)
