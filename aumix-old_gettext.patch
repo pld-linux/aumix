@@ -1,0 +1,77 @@
+diff -uNr aumix-2.7.old/po/de.po aumix-2.7/po/de.po
+--- aumix-2.7.old/po/de.po	Tue Sep  2 00:27:31 2003
++++ aumix-2.7/po/de.po	Tue Sep  2 00:30:49 2003
+@@ -2,7 +2,6 @@
+ # Copyright (C) 1998 Johnny Tevessen.
+ # Johnny Tevessen <j.tevessen@line.org>, 1998.
+ #
+-#, fuzzy
+ msgid ""
+ msgstr ""
+ "Project-Id-Version: aumix 2.6\n"
+diff -uNr aumix-2.7.old/po/fr.po aumix-2.7/po/fr.po
+--- aumix-2.7.old/po/fr.po	Tue Sep  2 00:27:31 2003
++++ aumix-2.7/po/fr.po	Tue Sep  2 00:30:46 2003
+@@ -2,7 +2,6 @@
+ # Copyright (C) 2000 Free Software Foundation, Inc.
+ # Guillaume Cottenceau <gc@mandrakesoft.com>, 2000.
+ #
+-#, fuzzy
+ msgid ""
+ msgstr ""
+ "Project-Id-Version: aumix 2.4\n"
+diff -uNr aumix-2.7.old/po/ja.po aumix-2.7/po/ja.po
+--- aumix-2.7.old/po/ja.po	Thu Jul 13 13:33:30 2000
++++ aumix-2.7/po/ja.po	Tue Sep  2 00:30:44 2003
+@@ -9,7 +9,6 @@
+ # - kikbd.po by Masanori Hanawa from kdebase 1.1.2
+ # - ja.po from kdelibs 1.1.2 (author unknown)
+ #
+-#, fuzzy
+ msgid ""
+ msgstr ""
+ "Project-Id-Version: aumix 2.7\n"
+diff -uNr aumix-2.7.old/po/pt_BR.po aumix-2.7/po/pt_BR.po
+--- aumix-2.7.old/po/pt_BR.po	Tue Sep  2 00:27:31 2003
++++ aumix-2.7/po/pt_BR.po	Tue Sep  2 00:30:41 2003
+@@ -2,7 +2,6 @@
+ # Copyright (C) 1998 Free Software Foundation, Inc.
+ # Arnaldo Carvalho de Melo <acme@conectiva.com.br>, 1998.
+ #
+-#, fuzzy
+ msgid ""
+ msgstr ""
+ "Project-Id-Version: aumix 2.4\n"
+diff -uNr aumix-2.7.old/po/ru.po aumix-2.7/po/ru.po
+--- aumix-2.7.old/po/ru.po	Tue Sep  2 00:27:31 2003
++++ aumix-2.7/po/ru.po	Tue Sep  2 00:30:54 2003
+@@ -1,7 +1,6 @@
+ # Russian po file for aumix.
+ # copyright (C) 1999 Michael Vasilenko <acid@stu.cn.ua>
+ #
+-#, fuzzy
+ msgid ""
+ msgstr ""
+ "Project-Id-Version: aumix 2.4\n"
+diff -uNr aumix-2.7.old/po/sv.po aumix-2.7/po/sv.po
+--- aumix-2.7.old/po/sv.po	Thu Jul 13 13:33:30 2000
++++ aumix-2.7/po/sv.po	Tue Sep  2 00:30:37 2003
+@@ -9,7 +9,6 @@
+ # - kscd.po by Christer Gustavsson <f93-cgn@sm.luth.se> from kdemultimedia 1.1.2
+ # - kmix.po by Karl Backström <backstrom@kde.org> from kdemultimedia 1.1.2
+ #
+-#, fuzzy
+ msgid ""
+ msgstr ""
+ "Project-Id-Version: aumix 2.7\n"
+diff -uNr aumix-2.7.old/po/uk.po aumix-2.7/po/uk.po
+--- aumix-2.7.old/po/uk.po	Tue Sep  2 00:27:31 2003
++++ aumix-2.7/po/uk.po	Tue Sep  2 00:30:52 2003
+@@ -1,7 +1,6 @@
+ # Ukrainian po file for aumix.
+ # copyright (C) 1999 Grisha Vasiliev <acid@pe.ti.chernigov.ua>
+ #
+-#, fuzzy
+ msgid ""
+ msgstr ""
+ "Project-Id-Version: aumix 2.4\n"
