@@ -9,12 +9,12 @@ Summary(pt_BR):	Mixador de Аudio baseado em curses
 Summary(ru):	Аудио микшер на базе библиотеки curses
 Summary(uk):	Ауд╕о м╕кшер, базований на б╕блиотец╕ curses
 Name:		aumix
-Version:	2.7
-Release:	15
+Version:	2.8
+Release:	1
 License:	GPL
 Group:		Applications/Sound
-Source0:	http://www.jpj.net/~trevor/aumix/%{name}-%{version}.tar.gz
-# Source0-md5: 84ecc331bf6d86d3ac925590fee83af7
+Source0:	http://www.jpj.net/~trevor/aumix/%{name}-%{version}.tar.bz2
+# Source0-md5: dc3fc7209752207c23e7c94ab886b340
 Source1:	%{name}.init
 Source2:	%{name}.sysconfig
 Source3:	%{name}.desktop
