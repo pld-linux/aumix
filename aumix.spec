@@ -1,8 +1,12 @@
 Summary:	curses based audio mixer
+Summary(fr):	Mixer audio basИ sur curses.
+Summary(tr):	Metin ekranlЩ ses karЩЧtЩrЩcЩ
 Summary(pl):	mikser audio bazuj╠cy na curses
+Summary(ru):	Аудио микшер на базе библиотеки curses
+Summary(ua):	Ауд╕о м╕кшер, базований на б╕блиотец╕ curses
 Name:		aumix
-Version:	1.18.2
-Release:	2
+Version:	1.18.3
+Release:	1
 Copyright:	GPL
 Group:		Applications/Sound
 Group(pl):	Aplikacje/D╪wiЙk
@@ -14,15 +18,41 @@ BuildPrereq:	gpm-devel
 BuildRoot:	/tmp/%{name}-%{version}-root
 
 %description
-This program provides a tty based, interactive method of controlling a
-sound cards mixer. It lets you adjust the input levels from the CD,
-microphone, and on board synthesizers as well as the output volume.
+This program provides a tty-based, interactive method of controlling a 
+sound card's mixer. It lets you adjust the input levels from the CD,
+microphone, and onboard synthesizers as well as the output volume.
+
+%description -l de
+Dieses Programm bietet eine interaktive Methode auf tty-Basis zur 
+Steuerung eines Soundkarten-Mixers. Sie kЖnnen damit die 
+Eingangspegel der CD, des Mikrophons und von Synthesizer-Karten 
+sowie auch die AusgabelautstДrke regeln. 
+
+%description -l fr
+Ce programme offre une mИthode intaractive en mode texte pour contrТler
+le mixer des cartes son. Il permet d'ajuster les niveaux d'entrИe du CD,
+du micro et des synthИtiseurs de la carte, tout comme le volume de sortie.
+
+%description -l tr
+Bu program metin ekranda, etkileЧimli olarak ses kartЩ mixer denetimi
+yapmanЩzЩ saglar. гЩktЩ sesinin yanЩsЩra, CD, mikrofon ve panel Эzerindeki
+birleЧtiriciden girdi seviyelerini ayarlamanЩza olanak verir.
 
 %description -l pl
 Ten program przynosi bazuj╠c╠ na tty, interaktywn╠ metodЙ kontrolowania
 miksera karty d╪wiЙkowej. aumix pozwala zmieniaФ poziom sygnaЁu
 nadchodz╠cego z CD, mikrofonu i syntetyzerСw tak samo jak poziom
 sygnaЁu wyj╤ciowego.
+
+%description -l ru
+Эта программа - консольный, интерактивный регулятор уровней микшера
+звуковой карты. Она позволяет изменять как входные уровни сигналов с
+CD, микрофона, синтезаторов на звуковой плате, так и выходной уровень.
+
+%description -l ua
+Ця програма - консольний, ╕нтерактивний регулятор р╕вней м╕кшеру
+звуково╖ картки. Вона дозволя╓ зм╕нювати як вх╕дн╕ р╕вн╕ сигнал╕в з
+CD, м╕крофону, синтезатор╕в на звуков╕й плат╕, так ╕ вих╕дний р╕вень.
 
 %prep
 %setup -q
@@ -52,17 +82,22 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc {AUTHORS,BUGS,ChangeLog,NEWS,README}.gz
 
-%lang(de) /usr/share/locale/de/LC_MESSAGES/aumix.mo
-%lang(es) /usr/share/locale/es/LC_MESSAGES/aumix.mo
-%lang(pl) /usr/share/locale/pl/LC_MESSAGES/aumix.mo
+%lang(de)    /usr/share/locale/de/LC_MESSAGES/aumix.mo
+%lang(es)    /usr/share/locale/es/LC_MESSAGES/aumix.mo
+%lang(pl)    /usr/share/locale/pl/LC_MESSAGES/aumix.mo
 %lang(pt_BR) /usr/share/locale/pt_BR/LC_MESSAGES/aumix.mo
-%lang(ru) /usr/share/locale/ru/LC_MESSAGES/aumix.mo
-%lang(ua) /usr/share/locale/ua/LC_MESSAGES/aumix.mo
+%lang(ru)    /usr/share/locale/ru/LC_MESSAGES/aumix.mo
+%lang(ua)    /usr/share/locale/ua/LC_MESSAGES/aumix.mo
 
 %attr(755,root,root) /usr/bin/aumix
 /usr/man/man1/*
 
 %changelog
+* Wed May  5 1999 Tomasz KЁoczko <kloczek@rudy.mif.pg.gda.pl>
+  [1.18.3-1]
+- included de, fr, ru, ua trznstations from dis tar ball,
+- recompiled on new rpm.
+
 * Mon Apr  5 1999 Piotr CzerwiЯski <pius@pld.org.pl>
   [1.17-2]
 - gzipping documentation and man pages,
