@@ -14,6 +14,7 @@ Release:	12
 License:	GPL
 Group:		Applications/Sound
 Source0:	http://www.jpj.net/~trevor/aumix/%{name}-%{version}.tar.gz
+# Source0-md5: 84ecc331bf6d86d3ac925590fee83af7
 Source1:	%{name}.init
 Source2:	%{name}.sysconfig
 Source3:	%{name}.desktop
