@@ -30,7 +30,7 @@ sygna³u wyj¶ciowego.
 
 %build
 CFLAGS="$RPM_OPT_FLAGS -I/usr/include/ncurses" LDFLAGS="-s" \
-./configure \
+./configure %{_target} \
 	--prefix=/usr
 
 make
