@@ -57,11 +57,18 @@ CD, м╕крофону, синтезатор╕в на звуков╕й плат╕, так ╕ вих╕дний р╕вень.
 %setup -q
 
 %build
+<<<<<<< aumix.spec
+autoconf
+CFLAGS="$RPM_OPT_FLAGS -I%{_includedir}/ncurses" LDFLAGS="-s" \
+./configure %{_target_platform} \
+	--prefix=%{_prefix}
+=======
 gettextize --copy --force
 CFLAGS="$RPM_OPT_FLAGS -I/usr/include/ncurses" LDFLAGS="-s" \
-./configure %{_target} \
+./configure %{_target_platform} \
 	--prefix=%{_prefix} \
 	--mandir=%{_mandir}
+>>>>>>> 1.14
 
 make CFLAGS="$RPM_OPT_FLAGS -I/usr/include/ncurses" LDFLAGS="-s"
 
