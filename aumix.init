@@ -21,14 +21,10 @@ case "$1" in
 		show "Setting up sound card mixer"
 		busy
 		if [ "$AUMIX_AUTO_INIT" = "yes" ]; then
-			daemon aumix -f /etc/aumixrc -L >/dev/null
+			aumix -f /etc/aumixrc -L >/dev/null
 			RETVAL=$?
-			[ $RETVAL -eq 0 ] && ok || fail
-			[ $RETVAL -eq 0 ] && touch /var/lock/subsys/aumix
-		else
-			touch /var/lock/subsys/aumix
-			ok
 		fi
+		[ $RETVAL -eq 0 ] && touch /var/lock/subsys/aumix && ok || fail
 	else
 		nls "Sound card mixer is already set up"
 	fi
@@ -52,10 +48,7 @@ case "$1" in
 	exit $0
         ;;
   save)
-	show "Saving sound card mixer's settings"
-	busy
-	aumix -f /etc/aumixrc -S
-	ok
+	run_cmd "Saving sound card mixer's settings" aumix -f /etc/aumixrc -S
   	;;
   restore|reload)
 	show "Setting up sound card mixer"
