@@ -10,7 +10,7 @@ Summary(ru):	Аудио микшер на базе библиотеки curses
 Summary(uk):	Ауд╕о м╕кшер, базований на б╕блиотец╕ curses
 Name:		aumix
 Version:	2.7
-Release:	12
+Release:	13
 License:	GPL
 Group:		Applications/Sound
 Source0:	http://www.jpj.net/~trevor/aumix/%{name}-%{version}.tar.gz
@@ -22,6 +22,7 @@ Source4:	%{name}.png
 Patch0:		%{name}-home_etc.patch
 Patch1:		%{name}-x%{name}.patch
 Patch2:		%{name}-ac250.patch
+Patch3:		%{name}-old_gettext.patch
 URL:		http://www.jpj.net/~trevor/aumix.html
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -108,6 +109,7 @@ systemu.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 %build
 #rm -f missing acinclude.m4
