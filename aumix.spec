@@ -106,7 +106,8 @@ autoconf
 automake -a -c
 
 CFLAGS="%{rpmcflags} -I/usr/include/ncurses"
-%configure --without-gtk
+%configure \
+	--without-gtk
 
 %{__make}
 
