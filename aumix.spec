@@ -4,9 +4,9 @@ Summary(fr):	Mixer audio basИ sur curses
 Summary(tr):	Metin ekranlЩ ses karЩЧtЩrЩcЩ
 Summary(pl):	Mikser audio bazuj╠cy na curses
 Summary(ru):	Аудио микшер на базе библиотеки curses
-Summary(ua):	Ауд╕о м╕кшер, базований на б╕блиотец╕ curses
+Summary(uk):	Ауд╕о м╕кшер, базований на б╕блиотец╕ curses
 Name:		aumix
-Version:	1.28
+Version:	1.30
 Release:	1
 Copyright:	GPL
 Group:		Applications/Sound
@@ -53,10 +53,10 @@ birleЧtiriciden girdi seviyelerini ayarlamanЩza olanak verir.
 звуковой карты. Она позволяет изменять как входные уровни сигналов с
 CD, микрофона, синтезаторов на звуковой плате, так и выходной уровень.
 
-%description -l ua
-Ця програма - консольний, ╕нтерактивний регулятор р╕вней м╕кшеру
-звуково╖ картки. Вона дозволя╓ зм╕нювати як вх╕дн╕ р╕вн╕ сигнал╕в з
-CD, м╕крофону, синтезатор╕в на звуков╕й плат╕, так ╕ вих╕дний р╕вень.
+%description -l uk
+Ця програма - консольний, ╕нтерактивний регулятор р╕вней м╕кшеру звуково╖
+картки. Вона дозволя╓ зм╕нювати як вх╕дн╕ р╕вн╕ сигнал╕в з CD, м╕крофону,
+синтезатор╕в на звуков╕й плат╕, так ╕ вих╕дний р╕вень.
 
 %prep
 %setup -q
