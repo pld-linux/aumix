@@ -22,13 +22,11 @@ case "$1" in
 		[ $RETVAL -eq 0 ] && touch /var/lock/subsys/aumix
 		ok
 	else
-		# show "%s service is already running." <service>
 		nls "Sound card mixer is already set up"
 		exit 1
 	fi
         ;;
   stop)
-        # Stop daemons.
 	if [ -f /var/lock/subsys/aumix ]; then
 		show "Saving sound card mixer's settings"
 		busy
@@ -57,8 +55,28 @@ case "$1" in
 	ok
 	;;
   status)
-	status aumix
-	exit $?
+	cat /proc/devices | grep -q "\(sparcaudio\|sound\)"
+	if [ $? = 0 ]; then
+		lsmod | grep -q "\(sound\|audio\)"
+		if [ $? = 0 ]; then
+			echo "Modular sound card detected."
+		else
+			echo "Monolithic sound card detected."
+		fi
+ 
+		cat /dev/sndstat 2> /dev/null | grep -A 1 "Midi devices:" | grep -q [0-9]:
+		if [ $? = 0 ]; then
+			echo "MIDI device present."
+		else
+			cat /dev/sndstat >/dev/null 2>&1
+			if [ $? = 0 ]; then
+				echo "MIDI device not detected."
+			fi
+		fi    
+
+	else
+		echo "Sound card not configured."
+        fi
         ;;
   *)
 	msg_Usage "$0 {start|stop|status|restart|save|restore}"
