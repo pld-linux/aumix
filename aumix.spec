@@ -19,6 +19,7 @@ Patch2:		aumix-pl.po.patch
 URL:		http://www.jpj.net/~trevor/aumix.html
 BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	gpm-devel
+BuildRequires:	gettext-devel
 #BuildRequires:	XFree86-devel
 #BuildRequires:	gtk+-devel >= 1.2.0
 #BuildRequires:	glib-devel >= 1.2.0
