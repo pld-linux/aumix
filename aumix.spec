@@ -70,7 +70,7 @@ rm -rf $RPM_BUILD_ROOT
 
 make prefix="$RPM_BUILD_ROOT/usr" install
 
-strip $RPM_BUILD_ROOT/usr/bin/*
+strip $RPM_BUILD_ROOT%{_bindir}/*
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/* \
 	AUTHORS BUGS ChangeLog NEWS README 
@@ -89,7 +89,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(ru)    %{_datadir}/locale/ru/LC_MESSAGES/aumix.mo
 %lang(ua)    %{_datadir}/locale/ua/LC_MESSAGES/aumix.mo
 
-%attr(755,root,root) /usr/bin/aumix
+%attr(755,root,root) %{_bindir}/aumix
 %{_mandir}/man1/*
 
 %changelog
