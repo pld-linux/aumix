@@ -72,7 +72,7 @@ make prefix="$RPM_BUILD_ROOT/usr" install
 
 strip $RPM_BUILD_ROOT/usr/bin/*
 
-gzip -9nf $RPM_BUILD_ROOT/usr/man/man1/* \
+gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/* \
 	AUTHORS BUGS ChangeLog NEWS README 
 
 %clean
@@ -90,7 +90,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(ua)    /usr/share/locale/ua/LC_MESSAGES/aumix.mo
 
 %attr(755,root,root) /usr/bin/aumix
-/usr/man/man1/*
+%{_mandir}/man1/*
 
 %changelog
 * Wed May  5 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
