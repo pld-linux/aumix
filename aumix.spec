@@ -1,5 +1,5 @@
 Summary:	curses based audio mixer
-Summary(fr):	Mixer audio basИ sur curses.
+Summary(fr):	Mixer audio basИ sur curses
 Summary(tr):	Metin ekranlЩ ses karЩЧtЩrЩcЩ
 Summary(pl):	mikser audio bazuj╠cy na curses
 Summary(ru):	Аудио микшер на базе библиотеки curses
@@ -59,9 +59,10 @@ CD, м╕крофону, синтезатор╕в на звуков╕й плат╕, так ╕ вих╕дний р╕вень.
 %build
 autoconf
 gettextize --copy --force
-CFLAGS="$RPM_OPT_FLAGS -I/usr/include/ncurses" LDFLAGS="-s" \
-./configure %{_target_platform} \
-	--prefix=%{_prefix}
+CFLAGS="$RPM_OPT_FLAGS -I/usr/include/ncurses"
+LDFLAGS="-s"
+export CFLAGS LDFLAGS
+%configure
 
 make CFLAGS="$RPM_OPT_FLAGS -I/usr/include/ncurses" LDFLAGS="-s"
 
