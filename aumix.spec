@@ -6,20 +6,22 @@ Summary(pl):	Mikser audio bazuj╠cy na curses
 Summary(ru):	Аудио микшер на базе библиотеки curses
 Summary(uk):	Ауд╕о м╕кшер, базований на б╕блиотец╕ curses
 Name:		aumix
-Version:	2
+Version:	2.1
 Release:	1
 License:	GPL
 Group:		Applications/Sound
 Group(pl):	Aplikacje/D╪wiЙk
 Source0:	http://www.jpj.net/~trevor/aumix/%{name}-%{version}.tar.gz
 Source1:	xaumix.desktop
-Patch:		aumix-home_etc.patch
+Patch0:		aumix-home_etc.patch
+Patch1:		aumix-gtk.patch
+Patch2:		aumix-pl.po.patch
 URL:		http://www.jpj.net/~trevor/aumix.html
 BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	gpm-devel
-BuildRequires:	XFree86-devel
-BuildRequires:	gtk+-devel >= 1.2.0
-BuildRequires:	glib-devel >= 1.2.0
+#BuildRequires:	XFree86-devel
+#BuildRequires:	gtk+-devel >= 1.2.0
+#BuildRequires:	glib-devel >= 1.2.0
 BuildRoot:	/tmp/%{name}-%{version}-root
 
 %define		_applnkdir	/usr/X11R6/share/applnk
@@ -63,17 +65,21 @@ CD, микрофона, синтезаторов на звуковой плате, так и выходной уровень.
 
 %prep
 %setup -q
-%patch -p1
+%patch0 -p1
+%patch1 -p1
+%patch2 -p1
 
 %build
 autoconf
 gettextize --copy --force
+
 CFLAGS="$RPM_OPT_FLAGS -I/usr/include/ncurses"
 LDFLAGS="-s"
 export CFLAGS LDFLAGS
-%configure 
+%configure \
+	--without-gtk
 
-make 
+make
 
 %install
 rm -rf $RPM_BUILD_ROOT
