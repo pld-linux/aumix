@@ -1,11 +1,12 @@
 Summary:	curses based audio mixer
+Summary(de):	Audio-Mixer auf curses-Basis
 Summary(fr):	Mixer audio basé sur curses
 Summary(tr):	Metin ekranlı ses karıştırıcı
 Summary(pl):	Mikser audio bazuj±cy na curses
 Summary(ru):	áÕÄÉÏ ÍÉËÛÅÒ ÎÁ ÂÁÚÅ ÂÉÂÌÉÏÔÅËÉ curses
 Summary(ua):	áÕÄ¦Ï Í¦ËÛÅÒ, ÂÁÚÏ×ÁÎÉÊ ÎÁ Â¦ÂÌÉÏÔÅÃ¦ curses
 Name:		aumix
-Version:	1.25.1
+Version:	1.26
 Release:	1
 Copyright:	GPL
 Group:		Applications/Sound
@@ -22,10 +23,10 @@ sound card's mixer. It lets you adjust the input levels from the CD,
 microphone, and onboard synthesizers as well as the output volume.
 
 %description -l de
-Dieses Programm bietet eine interaktive Methode auf tty-Basis zur 
-Steuerung eines Soundkarten-Mixers. Sie können damit die 
-Eingangspegel der CD, des Mikrophons und von Synthesizer-Karten 
-sowie auch die Ausgabelautstärke regeln. 
+Dieses Programm bietet eine interaktive Methode auf tty-Basis zur Steuerung
+eines Soundkarten-Mixers. Sie können damit die Eingangspegel der CD, des
+Mikrophons und von Synthesizer-Karten sowie auch die Ausgabelautstärke
+regeln.
 
 %description -l fr
 Ce programme offre une méthode intaractive en mode texte pour contrôler
