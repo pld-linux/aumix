@@ -12,7 +12,7 @@
 
 [ -f /etc/sysconfig/aumix ] && . /etc/sysconfig/aumix
 
-RETVAL=$?
+RETVAL=0
 # See how we were called.
 case "$1" in
   start)
