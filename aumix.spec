@@ -124,7 +124,7 @@ CPPFLAGS="-I/usr/include/ncurses"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_applnkdir}/Multimedia,%{_pixmapsdir}} \
+install -d $RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir}} \
 	$RPM_BUILD_ROOT{%{_sysconfdir},%{_bindir}} \
 	$RPM_BUILD_ROOT/etc/{rc.d/init.d,sysconfig}
 
@@ -133,7 +133,7 @@ install -d $RPM_BUILD_ROOT{%{_applnkdir}/Multimedia,%{_pixmapsdir}} \
 
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/rc.d/init.d/aumix
 install %{SOURCE2} $RPM_BUILD_ROOT/etc/sysconfig/aumix
-install %{SOURCE3} $RPM_BUILD_ROOT%{_applnkdir}/Multimedia
+install %{SOURCE3} $RPM_BUILD_ROOT%{_desktopdir}
 install %{SOURCE4} $RPM_BUILD_ROOT%{_pixmapsdir}
 rm -f $RPM_BUILD_ROOT%{_datadir}/aumix/aumix.xpm
 
@@ -168,9 +168,8 @@ fi
 %attr(755,root,root) %{_bindir}/aumix
 %{_mandir}/man1/*
 %{_datadir}/aumix
-
 %{_pixmapsdir}/*.png
-%{_applnkdir}/Multimedia/aumix.desktop
+%{_desktopdir}/aumix.desktop
 
 %files OSS-preserve-settings
 %defattr(644,root,root,755)
