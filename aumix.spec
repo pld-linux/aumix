@@ -22,9 +22,7 @@ BuildRequires:	gettext-devel
 BuildRequires:	XFree86-devel
 BuildRequires:	gtk+-devel >= 1.2.0
 BuildRequires:	glib-devel >= 1.2.0
-Requires:	rc-scripts >= 0.2.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-Obsoletes:	rhsound
 
 %description
 This program provides a tty-based, interactive method of controlling a 
@@ -69,6 +67,8 @@ Summary(pl):	Zapisuje/odtwarza ustawienia przy zamkniêciu/starcie systemu
 Group:		Applications/Sound
 Group(pl):	Aplikacje/D¼wiêk
 Requires:	%{name} = %{version}
+Requires:	rc-scripts >= 0.2.0
+Obsoletes:	rhsound
 Conflicts:	alsa-utils
 
 %description OSS-preserve-settings
