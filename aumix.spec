@@ -2,14 +2,13 @@ Summary:	curses based audio mixer
 Summary(pl):	mikser audio bazuj±cy na curses
 Name:		aumix
 Version:	1.17
-Release:	1d
-Vendor:		Trevor Johnson <trevor@jpj.net>
+Release:	2
 Source:		%{name}-%{version}.tar.gz
 Group:		Applications/Sound
 Group(pl):	Aplikacje/D¼wiêk
 Copyright:	GPL
 URL:		http://www.jpj.net/~trevor/aumix.html
-BuildRoot:	/tmp/buildroot-%{name}-%{version}
+BuildRoot:	/tmp/%{name}-%{version}-root
 
 %description
 This program provides a tty based, interactive method of controlling a
@@ -27,7 +26,8 @@ sygna³u wyj¶ciowego.
 
 %build
 CFLAGS=$RPM_OPT_FLAGS LDFLAGS=-s \
-./configure --prefix=/usr
+./configure \
+	--prefix=/usr
 
 make CFLAGS="$RPM_OPT_FLAGS"
 
@@ -38,17 +38,18 @@ make prefix="$RPM_BUILD_ROOT/usr" install
 
 strip $RPM_BUILD_ROOT/usr/bin/*
 
-bzip2 -9 $RPM_BUILD_ROOT/usr/man/man1/* AUTHORS BUGS ChangeLog NEWS README 
+gzip -9nf $RPM_BUILD_ROOT/usr/man/man1/* \
+	AUTHORS BUGS ChangeLog NEWS README 
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.bz2
+%doc {AUTHORS,BUGS,ChangeLog,NEWS,README}.gz
 
 %attr(755,root,root) /usr/bin/aumix
-%attr(644,root, man) /usr/man/man1/*
+/usr/man/man1/*
 
 %lang(de) /usr/share/locale/de/LC_MESSAGES/aumix.mo
 %lang(pl) /usr/share/locale/pl/LC_MESSAGES/aumix.mo
@@ -58,6 +59,13 @@ rm -rf $RPM_BUILD_ROOT
 %lang(ua) /usr/share/locale/ua/LC_MESSAGES/aumix.mo
 
 %changelog
+* Mon Apr  5 1999 Piotr Czerwiñski <pius@pld.org.pl>
+  [1.17-2]
+- gzipping documentation and man pages,
+- changed BuildRoot to /tmp/%%{name}-%%{version}-root,
+- removed man group from man pages,
+- cosmetic changes for common l&f.
+
 * Tue Feb 09 1999 Arkadiusz Mi¶kiewicz <misiek@misiek.eu.org>
   [1.17-1d]
 - new upstream release
