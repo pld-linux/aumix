@@ -143,7 +143,7 @@ if [ ! -f /var/lock/subsys/aumix ]; then
 fi
 
 %preun OSS-preserve-settings
-%chkconfig_preun
+%chkconfig_del
 
 %clean
 rm -rf $RPM_BUILD_ROOT
