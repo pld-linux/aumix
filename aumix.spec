@@ -16,9 +16,9 @@ Source0:	http://www.jpj.net/~trevor/aumix/%{name}-%{version}.tar.gz
 Source1:	aumix.init
 Source2:	xaumix.desktop
 Patch0:		aumix-home_etc.patch
-Patch1:		aumix-nogtk.patch
-Patch2:		aumix-xaumix.patch
+Patch1:		aumix-xaumix.patch
 URL:		http://www.jpj.net/~trevor/aumix.html
+BuildRequires:	automake
 BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	gpm-devel
 BuildRequires:	gettext-devel
@@ -87,9 +87,9 @@ systemu.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
 
 %build
+automake
 autoconf
 gettextize --copy --force
 
