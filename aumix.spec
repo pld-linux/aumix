@@ -7,11 +7,12 @@ Summary(ru):	Аудио микшер на базе библиотеки curses
 Summary(uk):	Ауд╕о м╕кшер, базований на б╕блиотец╕ curses
 Name:		aumix
 Version:	2.5
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/Sound
 Group(pl):	Aplikacje/D╪wiЙk
 Source0:	http://www.jpj.net/~trevor/aumix/%{name}-%{version}.tar.gz
+Source1:	aumix.init
 Source2:	aumix.desktop
 Patch0:		aumix-home_etc.patch
 URL:		http://www.jpj.net/~trevor/aumix.html
@@ -78,7 +79,8 @@ make
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_applnkdir}/Multimedia \
-	$RPM_BUILD_ROOT/usr/X11R6/{bin,share/pixmaps}
+	$RPM_BUILD_ROOT/usr/X11R6/{bin,share/pixmaps} \
+	$RPM_BUILD_ROOT%{_sysconfdir}/rc.d/init.d
 
 make install DESTDIR=$RPM_BUILD_ROOT
 
@@ -86,18 +88,40 @@ mv $RPM_BUILD_ROOT%{_bindir}/xaumix $RPM_BUILD_ROOT/usr/X11R6/bin
 mv $RPM_BUILD_ROOT%{_datadir}/aumix/*xpm \
 	$RPM_BUILD_ROOT/usr/X11R6/share/pixmaps
 
+install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/rc.d/init.d/aumix
 install %{SOURCE2} $RPM_BUILD_ROOT%{_applnkdir}/Multimedia
+
+touch $RPM_BUILD_ROOT%{_sysconfdir}/aumixrc
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/* \
 	AUTHORS BUGS ChangeLog NEWS README 
 
 %find_lang %{name}
 
+%post
+/sbin/chkconfig --add aumix
+if [ ! -f /var/lock/subsys/aumix ]; then
+	echo "Run \"/etc/rc.d/init.d/aumix start\" to initialize saving/restoring"
+	echo "sound card mixer's settings on system shutdown/startup, and then"
+	echo "setup sound volume."
+fi
+
+%preun
+if [ "$1" = "0" ]; then
+	if [ -f /var/lock/subsys/aumix ]; then
+		/etc/rc.d/init.d/aumix stop
+	fi
+	/sbin/chkconfig --del aumix
+fi
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
+
 %defattr(644,root,root,755)
+%config(noreplace,missingok) %{_sysconfdir}/aumixrc
+%attr(754,root,root) %{_sysconfdir}/rc.d/init.d/aumix
 %doc {AUTHORS,BUGS,ChangeLog,NEWS,README}.gz
 
 %attr(755,root,root) %{_bindir}/aumix
