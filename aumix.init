@@ -45,7 +45,6 @@ case "$1" in
   restart|force-reload)
 	$0 stop
 	$0 start
-	exit $0
 	;;
   save)
 	run_cmd "Saving sound card mixer's settings" aumix -f /etc/aumixrc -S
