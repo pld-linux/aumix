@@ -9,4 +9,5 @@ Icon=aumix.png
 MiniIcon=aumix-mini.xpm
 Terminal=0
 Type=Application
+Encoding=UTF-8
 # vi: encoding=utf-8
