@@ -106,7 +106,7 @@ install -d $RPM_BUILD_ROOT%{_applnkdir}/Multimedia \
 $RPM_BUILD_ROOT%{_prefix}/X11R6/{bin,share/pixmaps} \
 	$RPM_BUILD_ROOT%{_sysconfdir}/rc.d/init.d
 
-make install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install DESTDIR=$RPM_BUILD_ROOT
 
 mv $RPM_BUILD_ROOT%{_bindir}/xaumix $RPM_BUILD_ROOT%{_prefix}/X11R6/bin
 mv $RPM_BUILD_ROOT%{_datadir}/aumix/*xpm \
