@@ -51,7 +51,7 @@ d'entrée du CD, du micro et des synthétiseurs de la carte, tout comme
 le volume de sortie.
 
 %description -l pl
-Ten program przynosi bazuj±c± na tty, interaktywn± metodê
+Ten pakiet dostarcza bazuj±c± na tty, interaktywn± metodê
 kontrolowania miksera karty d¼wiêkowej. aumix pozwala zmieniaæ poziom
 sygna³u nadchodz±cego z CD, mikrofonu i syntetyzerów tak samo jak
 poziom sygna³u wyj¶ciowego.
@@ -80,6 +80,7 @@ Group(de):	Applikationen/Laut
 Group(pl):	Aplikacje/D¼wiêk
 Requires:	%{name} = %{version}
 Prereq:		rc-scripts >= 0.2.0
+Prereq:		/sbin/chkconfig
 Obsoletes:	rhsound
 Conflicts:	alsa-utils
 
@@ -87,7 +88,7 @@ Conflicts:	alsa-utils
 This package contains script, which will save settings of sound card's
 mixer on system shutdown and restore them on system startup.
 
-%description -l pl OSS-preserve-settings
+%description OSS-preserve-settings -l pl
 Ten pakiet zawiera skrypt, który zapisuje ustawienia miksera karty
 d¼wiêkowej przy zamkniêciu systemu i odtwarza je po uruchomieniu
 systemu.
@@ -133,6 +134,9 @@ gzip -9nf AUTHORS BUGS ChangeLog NEWS README TODO
 
 %find_lang %{name}
 
+%clean
+rm -rf $RPM_BUILD_ROOT
+
 %post OSS-preserve-settings
 /sbin/chkconfig --add aumix
 if [ ! -f /var/lock/subsys/aumix ]; then
@@ -148,9 +152,6 @@ if [ "$1" = "0" ]; then
 	fi
 	/sbin/chkconfig --del aumix
 fi
-
-%clean
-rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
