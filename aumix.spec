@@ -1,12 +1,13 @@
 Summary:	curses based audio mixer
 Summary(pl):	mikser audio bazuj±cy na curses
 Name:		aumix
-Version:	1.17
-Release:	2
-Source:		%{name}-%{version}.tar.gz
+Version:	1.18.2
+Release:	1
+Copyright:	GPL
 Group:		Applications/Sound
 Group(pl):	Aplikacje/D¼wiêk
-Copyright:	GPL
+Source:		http://www.jpj.net/~trevor/aumix/%{name}-%{version}.tar.gz
+Patch:		aumix.patch
 URL:		http://www.jpj.net/~trevor/aumix.html
 BuildRoot:	/tmp/%{name}-%{version}-root
 
@@ -23,13 +24,14 @@ sygna³u wyj¶ciowego.
 
 %prep
 %setup -q
+%patch -p1
 
 %build
-CFLAGS=$RPM_OPT_FLAGS LDFLAGS=-s \
+CFLAGS="$RPM_OPT_FLAGS -I/usr/include/ncurses" LDFLAGS="-s" \
 ./configure \
 	--prefix=/usr
 
-make CFLAGS="$RPM_OPT_FLAGS"
+make
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -51,12 +53,12 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) /usr/bin/aumix
 /usr/man/man1/*
 
-%lang(de) /usr/share/locale/de/LC_MESSAGES/aumix.mo
-%lang(pl) /usr/share/locale/pl/LC_MESSAGES/aumix.mo
-%lang(es) /usr/share/locale/es/LC_MESSAGES/aumix.mo
-%lang(pt) /usr/share/locale/pt_BR/LC_MESSAGES/aumix.mo
-%lang(ru) /usr/share/locale/ru/LC_MESSAGES/aumix.mo
-%lang(ua) /usr/share/locale/ua/LC_MESSAGES/aumix.mo
+%lang(de)    /usr/share/locale/de/LC_MESSAGES/aumix.mo
+%lang(es)    /usr/share/locale/es/LC_MESSAGES/aumix.mo
+%lang(pl)    /usr/share/locale/pl/LC_MESSAGES/aumix.mo
+%lang(pt_BR) /usr/share/locale/pt_BR/LC_MESSAGES/aumix.mo
+%lang(ru)    /usr/share/locale/ru/LC_MESSAGES/aumix.mo
+%lang(ua)    /usr/share/locale/ua/LC_MESSAGES/aumix.mo
 
 %changelog
 * Mon Apr  5 1999 Piotr Czerwiñski <pius@pld.org.pl>
