@@ -109,8 +109,9 @@ systemu.
 %patch2 -p1
 
 %build
-rm -f missing acinclude.m4
-%{__gettextize}
+#rm -f missing acinclude.m4
+rm -f missing
+#%%{__gettextize}
 %{__aclocal}
 %{__autoconf}
 %{__automake}
