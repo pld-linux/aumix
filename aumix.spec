@@ -11,8 +11,6 @@ Version:	2.7
 Release:	5
 License:	GPL
 Group:		Applications/Sound
-Group(de):	Applikationen/Laut
-Group(pl):	Aplikacje/D¼wiêk
 Source0:	http://www.jpj.net/~trevor/aumix/%{name}-%{version}.tar.gz
 Source1:	%{name}.init
 Source2:	%{name}.sysconfig
@@ -76,8 +74,6 @@ CD, Í¦ËÒÏÆÏÎÕ, ÓÉÎÔÅÚÁÔÏÒ¦× ÎÁ Ú×ÕËÏ×¦Ê ÐÌÁÔ¦, ÔÁË ¦ ×ÉÈ¦ÄÎÉÊ Ò¦×ÅÎØ.
 Summary:	Saves/restores mixer settings on system shutdown/startup
 Summary(pl):	Zapisuje/odtwarza ustawienia przy zamkniêciu/starcie systemu
 Group:		Applications/Sound
-Group(de):	Applikationen/Laut
-Group(pl):	Aplikacje/D¼wiêk
 Requires:	%{name} = %{version}
 Prereq:		rc-scripts >= 0.2.0
 Prereq:		/sbin/chkconfig
