@@ -8,7 +8,7 @@ Summary(ru):	Аудио микшер на базе библиотеки curses
 Summary(uk):	Ауд╕о м╕кшер, базований на б╕блиотец╕ curses
 Name:		aumix
 Version:	2.7
-Release:	2
+Release:	3
 License:	GPL
 Group:		Applications/Sound
 Group(de):	Applikationen/Laut
@@ -22,9 +22,9 @@ Patch1:		%{name}-xaumix.patch
 URL:		http://www.jpj.net/~trevor/aumix.html
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	gpm-devel
 BuildRequires:	gettext-devel
+BuildRequires:	ncurses-devel >= 5.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	aumix-gtk
 
@@ -97,10 +97,11 @@ systemu.
 %patch1 -p1
 
 %build
+rm -f missing acinclude.m4
+gettextize --copy --force
 aclocal
 autoconf
 automake -a -c
-gettextize --copy --force
 
 CFLAGS="%{rpmcflags} -I/usr/include/ncurses"
 %configure --without-gtk
