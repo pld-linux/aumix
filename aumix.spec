@@ -8,7 +8,7 @@ Summary(ru):	Аудио микшер на базе библиотеки curses
 Summary(uk):	Ауд╕о м╕кшер, базований на б╕блиотец╕ curses
 Name:		aumix
 Version:	2.6.1
-Release:	2
+Release:	3
 License:	GPL
 Group:		Applications/Sound
 Group(pl):	Aplikacje/D╪wiЙk
