@@ -113,7 +113,7 @@ systemu.
 
 %build
 rm -f missing acinclude.m4
-gettextize --copy --force
+%{__gettextize}
 aclocal
 %{__autoconf}
 %{__automake}
