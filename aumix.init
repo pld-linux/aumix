@@ -10,7 +10,7 @@
 # Source function library
 . /etc/rc.d/init.d/functions
 
-[ -f /etc/sysconfig/aumix ] && /etc/sysconfig/aumix
+[ -f /etc/sysconfig/aumix ] && . /etc/sysconfig/aumix
 
 RETVAL=$?
 # See how we were called.
