@@ -86,20 +86,3 @@ rm -rf $RPM_BUILD_ROOT
 
 %attr(755,root,root) %{_bindir}/aumix
 %{_mandir}/man1/*
-
-%changelog
-* Fri Jun  4 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [1.19-1]
-- added ufing %%find_lang macro.
-
-* Tue Jun 1 1999 Piotr Czerwiñski <pius@pld.org.pl> 
-  [1.19-1]
-- updated to 1.19,
-- added using DESTDIR,
-- fixed passing make flags.
-
-* Wed May  5 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [1.18.3-1]
-- translations from distributed in tar ball spec,
-- spec rewritted by Arkadiusz Mi¶kiewicz <misiek@misiek.eu.org> and 
-  Piotr Czerwiñski <pius@pld.org.pl>.
