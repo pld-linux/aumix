@@ -10,7 +10,7 @@ Summary(ru):	Аудио микшер на базе библиотеки curses
 Summary(uk):	Ауд╕о м╕кшер, базований на б╕блиотец╕ curses
 Name:		aumix
 Version:	2.7
-Release:	12
+Release:	13
 License:	GPL
 Group:		Applications/Sound
 Source0:	http://www.jpj.net/~trevor/aumix/%{name}-%{version}.tar.gz
@@ -25,8 +25,8 @@ Patch2:		%{name}-ac250.patch
 URL:		http://www.jpj.net/~trevor/aumix.html
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gpm-devel
 BuildRequires:	gettext-devel
+BuildRequires:	gpm-devel
 BuildRequires:	ncurses-devel >= 5.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	aumix-gtk
@@ -126,7 +126,7 @@ CPPFLAGS="-I/usr/include/ncurses"
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_applnkdir}/Multimedia,%{_pixmapsdir}} \
-	$RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1} \
+	$RPM_BUILD_ROOT{%{_sysconfdir},%{_bindir}} \
 	$RPM_BUILD_ROOT/etc/{rc.d/init.d,sysconfig}
 
 %{__make} install \
@@ -136,8 +136,9 @@ install %{SOURCE1} $RPM_BUILD_ROOT/etc/rc.d/init.d/aumix
 install %{SOURCE2} $RPM_BUILD_ROOT/etc/sysconfig/aumix
 install %{SOURCE3} $RPM_BUILD_ROOT%{_applnkdir}/Multimedia
 install %{SOURCE4} $RPM_BUILD_ROOT%{_pixmapsdir}
+rm -f $RPM_BUILD_ROOT%{_datadir}/aumix/aumix.xpm
 
-touch $RPM_BUILD_ROOT%{_sysconfdir}/aumixrc
+:> $RPM_BUILD_ROOT%{_sysconfdir}/aumixrc
 
 %find_lang %{name}
 
