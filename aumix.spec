@@ -5,14 +5,13 @@ Summary(pl):	mikser audio bazuj╠cy na curses
 Summary(ru):	Аудио микшер на базе библиотеки curses
 Summary(ua):	Ауд╕о м╕кшер, базований на б╕блиотец╕ curses
 Name:		aumix
-Version:	1.18.4
+Version:	1.19
 Release:	1
 Copyright:	GPL
 Group:		Applications/Sound
 Group(pl):	Aplikacje/D╪wiЙk
 URL:            http://www.jpj.net/~trevor/aumix.html
 Source:		http://www.jpj.net/~trevor/aumix/%{name}-%{version}.tar.gz
-Patch0:		aumix.patch
 BuildPrereq:	ncurses-devel
 BuildPrereq:	gpm-devel
 BuildRoot:	/tmp/%{name}-%{version}-root
@@ -56,20 +55,20 @@ CD, м╕крофону, синтезатор╕в на звуков╕й плат╕, так ╕ вих╕дний р╕вень.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
-autoconf
-CFLAGS="$RPM_OPT_FLAGS -I%{_includedir}/ncurses" LDFLAGS="-s" \
+gettextize --copy --force
+CFLAGS="$RPM_OPT_FLAGS -I/usr/include/ncurses" LDFLAGS="-s" \
 ./configure %{_target} \
-	--prefix=%{_prefix}
+	--prefix=%{_prefix} \
+	--mandir=%{_mandir}
 
-make
+make CFLAGS="$RPM_OPT_FLAGS -I/usr/include/ncurses" LDFLAGS="-s"
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-make prefix="$RPM_BUILD_ROOT/usr" install
+make DESTDIR=$RPM_BUILD_ROOT install
 
 strip $RPM_BUILD_ROOT%{_bindir}/*
 
@@ -94,6 +93,12 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/*
 
 %changelog
+* Tue Jun 1 1999 Piotr CzerwiЯski <pius@pld.org.pl> 
+  [1.19-1]
+- updated to 1.19,
+- added using DESTDIR,
+- fixed passing make flags.
+
 * Wed May  5 1999 Tomasz KЁoczko <kloczek@rudy.mif.pg.gda.pl>
   [1.18.3-1]
 - translations from distributed in tar ball spec,
