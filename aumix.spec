@@ -8,7 +8,7 @@ Summary(ru):	áÕÄÉÏ ÍÉËÛÅÒ ÎÁ ÂÁÚÅ ÂÉÂÌÉÏÔÅËÉ curses
 Summary(uk):	áÕÄ¦Ï Í¦ËÛÅÒ, ÂÁÚÏ×ÁÎÉÊ ÎÁ Â¦ÂÌÉÏÔÅÃ¦ curses
 Name:		aumix
 Version:	2.7
-Release:	4
+Release:	5
 License:	GPL
 Group:		Applications/Sound
 Group(de):	Applikationen/Laut
@@ -53,8 +53,8 @@ le volume de sortie.
 %description -l pl
 Ten pakiet dostarcza bazuj±c± na tty, interaktywn± metodê
 kontrolowania miksera karty d¼wiêkowej. aumix pozwala zmieniaæ poziom
-sygna³u nadchodz±cego z CD, mikrofonu i syntetyzerów tak samo jak
-poziom sygna³u wyj¶ciowego.
+sygna³u nadchodz±cego z CD, mikrofonu i syntetyzerów, a tak¿e poziom
+sygna³u wyj¶ciowego.
 
 %description -l tr
 Bu program metin ekranda, etkileşimli olarak ses kartı mixer denetimi
@@ -106,7 +106,7 @@ aclocal
 autoconf
 automake -a -c
 
-CFLAGS="%{rpmcflags} -I/usr/include/ncurses"
+CPPFLAGS="-I/usr/include/ncurses" \
 %configure \
 	--without-gtk
 
