@@ -12,8 +12,8 @@ Group:		Applications/Sound
 Group(pl):	Aplikacje/D¼wiêk
 URL:            http://www.jpj.net/~trevor/aumix.html
 Source:		http://www.jpj.net/~trevor/aumix/%{name}-%{version}.tar.gz
-BuildPrereq:	ncurses-devel
-BuildPrereq:	gpm-devel
+BuildRequires:	ncurses-devel
+BuildRequires:	gpm-devel
 BuildRoot:	/tmp/%{name}-%{version}-root
 
 %description
