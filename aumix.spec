@@ -25,8 +25,8 @@ Patch2:		%{name}-ac250.patch
 URL:		http://www.jpj.net/~trevor/aumix.html
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gpm-devel
 BuildRequires:	gettext-devel
+BuildRequires:	gpm-devel
 BuildRequires:	ncurses-devel >= 5.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	aumix-gtk
