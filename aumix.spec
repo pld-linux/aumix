@@ -6,7 +6,7 @@ Summary(pl):	Mikser audio bazuj╠cy na curses
 Summary(ru):	Аудио микшер на базе библиотеки curses
 Summary(ua):	Ауд╕о м╕кшер, базований на б╕блиотец╕ curses
 Name:		aumix
-Version:	1.27.2
+Version:	1.27.3
 Release:	1
 Copyright:	GPL
 Group:		Applications/Sound
