@@ -87,7 +87,7 @@ case "$1" in
         fi
         ;;
   *)
-	msg_Usage "$0 {start|stop|status|restart|save|restore}"
+	msg_usage "$0 {start|stop|status|restart|save|restore}"
         exit 1
 esac
 
