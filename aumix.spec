@@ -12,10 +12,8 @@ License:	GPL
 Group:		Applications/Sound
 Group(pl):	Aplikacje/D╪wiЙk
 Source0:	http://www.jpj.net/~trevor/aumix/%{name}-%{version}.tar.gz
-#Source1:	xaumix.desktop
 Source2:	aumix.desktop
-Patch0:		aumix-pl.po.patch
-Patch1:		aumix-home_etc.patch
+Patch0:		aumix-home_etc.patch
 URL:		http://www.jpj.net/~trevor/aumix.html
 BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	gpm-devel
@@ -68,7 +66,6 @@ CD, микрофона, синтезаторов на звуковой плате, так и выходной уровень.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 %build
 autoconf
