@@ -114,8 +114,8 @@ systemu.
 rm -f missing acinclude.m4
 gettextize --copy --force
 aclocal
-autoconf
-automake -a -c -f
+%{__autoconf}
+%{__automake}
 
 CPPFLAGS="-I%{_includedir}/ncurses" \
 %configure \
