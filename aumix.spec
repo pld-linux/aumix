@@ -6,17 +6,20 @@ Summary(pl):	Mikser audio bazuj±cy na curses
 Summary(ru):	áÕÄÉÏ ÍÉËÛÅÒ ÎÁ ÂÁÚÅ ÂÉÂÌÉÏÔÅËÉ curses
 Summary(ua):	áÕÄ¦Ï Í¦ËÛÅÒ, ÂÁÚÏ×ÁÎÉÊ ÎÁ Â¦ÂÌÉÏÔÅÃ¦ curses
 Name:		aumix
-Version:	1.27
-Release:	2
+Version:	1.27.1
+Release:	1
 Copyright:	GPL
 Group:		Applications/Sound
 Group(pl):	Aplikacje/D¼wiêk
-Source:		http://www.jpj.net/~trevor/aumix/%{name}-%{version}.tar.gz
-Patch:		aumix-pl.po.patch
+Source0:	http://www.jpj.net/~trevor/aumix/%{name}-%{version}.tar.gz
+Source1:	xaumix.desktop
+Patch:		aumix-xaumix.patch
 URL:            http://www.jpj.net/~trevor/aumix.html
 BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	gpm-devel
 BuildRoot:	/tmp/%{name}-%{version}-root
+
+%define		_applnkdir	/usr/X11R6/share/applnk
 
 %description
 This program provides a tty-based, interactive method of controlling a 
@@ -71,7 +74,16 @@ make
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_applnkdir}/Multimedia \
+	$RPM_BUILD_ROOT/usr/X11R6/{bin,share/pixmaps}
+
 make install DESTDIR=$RPM_BUILD_ROOT
+
+mv $RPM_BUILD_ROOT%{_bindir}/xaumix $RPM_BUILD_ROOT/usr/X11R6/bin
+mv $RPM_BUILD_ROOT%{_datadir}/aumix/*xpm \
+	$RPM_BUILD_ROOT/usr/X11R6/share/pixmaps
+
+install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Multimedia
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/* \
 	AUTHORS BUGS ChangeLog NEWS README 
@@ -85,5 +97,11 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc {AUTHORS,BUGS,ChangeLog,NEWS,README}.gz
 
-%attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) %{_bindir}/aumix
+%attr(755,root,root) /usr/X11R6/bin/xaumix
+
+/usr/X11R6/share/pixmaps/*.xpm
+%{_applnkdir}/Multimedia/xaumix.desktop
+
+%{_datadir}/aumix
 %{_mandir}/man1/*
