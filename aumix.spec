@@ -10,13 +10,14 @@ Summary(ru):	Аудио микшер на базе библиотеки curses
 Summary(uk):	Ауд╕о м╕кшер, базований на б╕блиотец╕ curses
 Name:		aumix
 Version:	2.7
-Release:	10
+Release:	11
 License:	GPL
 Group:		Applications/Sound
 Source0:	http://www.jpj.net/~trevor/aumix/%{name}-%{version}.tar.gz
 Source1:	%{name}.init
 Source2:	%{name}.sysconfig
 Source3:	x%{name}.desktop
+Source4:	%{name}.png
 Patch0:		%{name}-home_etc.patch
 Patch1:		%{name}-x%{name}.patch
 Patch2:		%{name}-ac250.patch
@@ -134,11 +135,11 @@ install -d $RPM_BUILD_ROOT{%{_applnkdir}/Multimedia,%{_pixmapsdir}} \
 
 mv -f $RPM_BUILD_ROOT%{_bindir}/xaumix $RPM_BUILD_ROOT%{_xbindir}
 mv -f $RPM_BUILD_ROOT%{_mandir}/man1/xaumix* $RPM_BUILD_ROOT%{_xmandir}/man1
-mv -f $RPM_BUILD_ROOT%{_datadir}/aumix/*xpm $RPM_BUILD_ROOT%{_pixmapsdir}
 
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/rc.d/init.d/aumix
 install %{SOURCE2} $RPM_BUILD_ROOT/etc/sysconfig/aumix
 install %{SOURCE3} $RPM_BUILD_ROOT%{_applnkdir}/Multimedia
+install %{SOURCE4} $RPM_BUILD_ROOT%{_pixmapsdir}
 
 touch $RPM_BUILD_ROOT%{_sysconfdir}/aumixrc
 
@@ -174,7 +175,7 @@ fi
 
 %attr(755,root,root) %{_xbindir}/xaumix
 %{_xmandir}/man1/*
-%{_pixmapsdir}/*.xpm
+%{_pixmapsdir}/*.png
 %{_applnkdir}/Multimedia/xaumix.desktop
 
 %files OSS-preserve-settings
