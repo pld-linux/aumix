@@ -10,10 +10,11 @@ Summary(ru):	Аудио микшер на базе библиотеки curses
 Summary(uk):	Ауд╕о м╕кшер, базований на б╕блиотец╕ curses
 Name:		aumix
 Version:	2.7
-Release:	11
+Release:	12
 License:	GPL
 Group:		Applications/Sound
 Source0:	http://www.jpj.net/~trevor/aumix/%{name}-%{version}.tar.gz
+# Source0-md5:	84ecc331bf6d86d3ac925590fee83af7
 Source1:	%{name}.init
 Source2:	%{name}.sysconfig
 Source3:	%{name}.desktop
@@ -109,15 +110,15 @@ systemu.
 %patch2 -p1
 
 %build
-rm -f missing acinclude.m4
-%{__gettextize}
+#rm -f missing acinclude.m4
+rm -f missing
+#%%{__gettextize}
 %{__aclocal}
 %{__autoconf}
 %{__automake}
 
 CPPFLAGS="-I/usr/include/ncurses" \
 %configure \
-	--with-ncurses \
 	--without-gtk
 
 %{__make}
