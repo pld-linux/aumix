@@ -32,16 +32,16 @@ Ce programme offre une méthode intaractive en mode texte pour contrôler
 le mixer des cartes son. Il permet d'ajuster les niveaux d'entrée du CD,
 du micro et des synthétiseurs de la carte, tout comme le volume de sortie.
 
-%description -l tr
-Bu program metin ekranda, etkileşimli olarak ses kartı mixer denetimi
-yapmanızı saglar. Çıktı sesinin yanısıra, CD, mikrofon ve panel üzerindeki
-birleştiriciden girdi seviyelerini ayarlamanıza olanak verir.
-
 %description -l pl
 Ten program przynosi bazuj±c± na tty, interaktywn± metodê kontrolowania
 miksera karty d¼wiêkowej. aumix pozwala zmieniaæ poziom sygna³u
 nadchodz±cego z CD, mikrofonu i syntetyzerów tak samo jak poziom
 sygna³u wyj¶ciowego.
+
+%description -l tr
+Bu program metin ekranda, etkileşimli olarak ses kartı mixer denetimi
+yapmanızı saglar. Çıktı sesinin yanısıra, CD, mikrofon ve panel üzerindeki
+birleştiriciden girdi seviyelerini ayarlamanıza olanak verir.
 
 %description -l ru
 üÔÁ ĞÒÏÇÒÁÍÍÁ - ËÏÎÓÏÌØÎÙÊ, ÉÎÔÅÒÁËÔÉ×ÎÙÊ ÒÅÇÕÌÑÔÏÒ ÕÒÏ×ÎÅÊ ÍÉËÛÅÒÁ
@@ -75,12 +75,12 @@ strip $RPM_BUILD_ROOT%{_bindir}/*
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/* \
 	AUTHORS BUGS ChangeLog NEWS README 
 
-%find_lang aumix
+%find_lang %{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files -f aumix.lang
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc {AUTHORS,BUGS,ChangeLog,NEWS,README}.gz
 
