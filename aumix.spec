@@ -6,17 +6,20 @@ Summary(pl):	Mikser audio bazuj±cy na curses
 Summary(ru):	áÕÄÉÏ ÍÉËÛÅÒ ÎÁ ÂÁÚÅ ÂÉÂÌÉÏÔÅËÉ curses
 Summary(uk):	áÕÄ¦Ï Í¦ËÛÅÒ, ÂÁÚÏ×ÁÎÉÊ ÎÁ Â¦ÂÌÉÏÔÅÃ¦ curses
 Name:		aumix
-Version:	1.30
+Version:	2
 Release:	1
-Copyright:	GPL
+License:	GPL
 Group:		Applications/Sound
 Group(pl):	Aplikacje/D¼wiêk
 Source0:	http://www.jpj.net/~trevor/aumix/%{name}-%{version}.tar.gz
 Source1:	xaumix.desktop
 Patch:		aumix-home_etc.patch
-URL:            http://www.jpj.net/~trevor/aumix.html
+URL:		http://www.jpj.net/~trevor/aumix.html
 BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	gpm-devel
+BuildRequires:	XFree86-devel
+BuildRequires:	gtk+-devel >= 1.2.0
+BuildRequires:	glib-devel >= 1.2.0
 BuildRoot:	/tmp/%{name}-%{version}-root
 
 %define		_applnkdir	/usr/X11R6/share/applnk
