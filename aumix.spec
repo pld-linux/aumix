@@ -10,7 +10,7 @@ Summary(ru):	Аудио микшер на базе библиотеки curses
 Summary(uk):	Ауд╕о м╕кшер, базований на б╕блиотец╕ curses
 Name:		aumix
 Version:	2.8
-Release:	1
+Release:	0.1
 License:	GPL
 Group:		Applications/Sound
 Source0:	http://www.jpj.net/~trevor/aumix/%{name}-%{version}.tar.bz2
@@ -106,8 +106,8 @@ systemu.
 %prep
 %setup -q
 #%patch0 -p1
-#%patch1 -p1
-#%patch2 -p1
+%patch1 -p1
+%patch2 -p1
 
 %build
 #rm -f missing acinclude.m4
