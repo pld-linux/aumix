@@ -7,14 +7,14 @@ Summary(ru):	Аудио микшер на базе библиотеки curses
 Summary(ua):	Ауд╕о м╕кшер, базований на б╕блиотец╕ curses
 Name:		aumix
 Version:	1.27
-Release:	1
+Release:	2
 Copyright:	GPL
 Group:		Applications/Sound
 Group(pl):	Aplikacje/D╪wiЙk
 Source:		http://www.jpj.net/~trevor/aumix/%{name}-%{version}.tar.gz
 Patch:		aumix-pl.po.patch
 URL:            http://www.jpj.net/~trevor/aumix.html
-BuildRequires:	ncurses-devel
+BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	gpm-devel
 BuildRoot:	/tmp/%{name}-%{version}-root
 
