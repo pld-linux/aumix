@@ -57,18 +57,11 @@ CD, м╕крофону, синтезатор╕в на звуков╕й плат╕, так ╕ вих╕дний р╕вень.
 %setup -q
 
 %build
-<<<<<<< aumix.spec
 autoconf
-CFLAGS="$RPM_OPT_FLAGS -I%{_includedir}/ncurses" LDFLAGS="-s" \
-./configure %{_target_platform} \
-	--prefix=%{_prefix}
-=======
 gettextize --copy --force
 CFLAGS="$RPM_OPT_FLAGS -I/usr/include/ncurses" LDFLAGS="-s" \
 ./configure %{_target_platform} \
-	--prefix=%{_prefix} \
-	--mandir=%{_mandir}
->>>>>>> 1.14
+	--prefix=%{_prefix}
 
 make CFLAGS="$RPM_OPT_FLAGS -I/usr/include/ncurses" LDFLAGS="-s"
 
@@ -82,24 +75,23 @@ strip $RPM_BUILD_ROOT%{_bindir}/*
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/* \
 	AUTHORS BUGS ChangeLog NEWS README 
 
+%find_lang aumix
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f aumix.lang
 %defattr(644,root,root,755)
 %doc {AUTHORS,BUGS,ChangeLog,NEWS,README}.gz
-
-%lang(de)    %{_datadir}/locale/de/LC_MESSAGES/aumix.mo
-%lang(es)    %{_datadir}/locale/es/LC_MESSAGES/aumix.mo
-%lang(pl)    %{_datadir}/locale/pl/LC_MESSAGES/aumix.mo
-%lang(pt_BR) %{_datadir}/locale/pt_BR/LC_MESSAGES/aumix.mo
-%lang(ru)    %{_datadir}/locale/ru/LC_MESSAGES/aumix.mo
-%lang(ua)    %{_datadir}/locale/ua/LC_MESSAGES/aumix.mo
 
 %attr(755,root,root) %{_bindir}/aumix
 %{_mandir}/man1/*
 
 %changelog
+* Fri Jun  4 1999 Tomasz KЁoczko <kloczek@rudy.mif.pg.gda.pl>
+  [1.19-1]
+- added ufing %%find_lang macro.
+
 * Tue Jun 1 1999 Piotr CzerwiЯski <pius@pld.org.pl> 
   [1.19-1]
 - updated to 1.19,
