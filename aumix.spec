@@ -5,7 +5,7 @@ Summary(pl):	mikser audio bazuj±cy na curses
 Summary(ru):	áÕÄÉÏ ÍÉËÛÅÒ ÎÁ ÂÁÚÅ ÂÉÂÌÉÏÔÅËÉ curses
 Summary(ua):	áÕÄ¦Ï Í¦ËÛÅÒ, ÂÁÚÏ×ÁÎÉÊ ÎÁ Â¦ÂÌÉÏÔÅÃ¦ curses
 Name:		aumix
-Version:	1.18.3
+Version:	1.18.4
 Release:	1
 Copyright:	GPL
 Group:		Applications/Sound
@@ -61,7 +61,7 @@ CD, Í¦ËÒÏÆÏÎÕ, ÓÉÎÔÅÚÁÔÏÒ¦× ÎÁ Ú×ÕËÏ×¦Ê ĞÌÁÔ¦, ÔÁË ¦ ×ÉÈ¦ÄÎÉÊ Ò¦×ÅÎØ.
 %build
 CFLAGS="$RPM_OPT_FLAGS -I%{_includedir}/ncurses" LDFLAGS="-s" \
 ./configure %{_target} \
-	--prefix=/usr
+	--prefix=%{_prefix}
 
 make
 
@@ -95,44 +95,6 @@ rm -rf $RPM_BUILD_ROOT
 %changelog
 * Wed May  5 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [1.18.3-1]
-- included de, fr, ru, ua translations from dis tar ball,
-- recompiled on new rpm.
-
-* Mon Apr  5 1999 Piotr Czerwiñski <pius@pld.org.pl>
-  [1.17-2]
-- gzipping documentation and man pages,
-- changed BuildRoot to /tmp/%%{name}-%%{version}-root,
-- removed man group from man pages,
-- cosmetic changes for common l&f.
-
-* Tue Feb 09 1999 Arkadiusz Mi¶kiewicz <misiek@misiek.eu.org>
-  [1.17-1d]
-- new upstream release
-- removed patches
-
-* Mon Feb 01 1999 Arkadiusz Mi¶kiewicz <misiek@misiek.eu.org>
-  [1.15-1d]
-- new upstream release
-- now 755 mode instead 711 on binary
-- added URL
-
-* Wed Oct 07 1998 Arkadiusz Mi¶kiewicz <misiek@zsz2.starachowice.pl>
-- corrected vendor
-- few changes for PLD
-- patch for slang (ncurses is bad thing ;)
-- added %%lang macro
-- added configure.in patch
-
-* Thu Aug 06 1998 Arkadiusz Mi¶kiewicz <misiek@debian.eu.org>
-- updated to 1.10
-- added polish summary and description
-- added small autoconf patch
-
-* Tue Jul 28 1998 Arkadiusz Mi¶kiewicz <misiek@misiek.eu.org>
-- updated to 1.9.4
-
-* Wed Jul 22 1998 Arkadiusz Mi¶kiewicz <misiek@misiek.eu.org>
-- updated to 1.9.3
-
-* Tue Jul 21 1998 Arkadiusz Mi¶kiewicz <misiek@misiek.eu.org>
-- new aumix version
+- translations from distributed in tar ball spec,
+- spec rewritted by Arkadiusz Mi¶kiewicz <misiek@misiek.eu.org> and 
+  Piotr Czerwiñski <pius@pld.org.pl>.
