@@ -6,7 +6,7 @@ Summary(pl):	Mikser audio bazuj±cy na curses
 Summary(ru):	áÕÄÉÏ ÍÉËÛÅÒ ÎÁ ÂÁÚÅ ÂÉÂÌÉÏÔÅËÉ curses
 Summary(uk):	áÕÄ¦Ï Í¦ËÛÅÒ, ÂÁÚÏ×ÁÎÉÊ ÎÁ Â¦ÂÌÉÏÔÅÃ¦ curses
 Name:		aumix
-Version:	2.2
+Version:	2.4
 Release:	1
 License:	GPL
 Group:		Applications/Sound
@@ -14,8 +14,8 @@ Group(pl):	Aplikacje/D¼wiêk
 Source0:	http://www.jpj.net/~trevor/aumix/%{name}-%{version}.tar.gz
 #Source1:	xaumix.desktop
 Source2:	aumix.desktop
-Patch0:		aumix-home_etc.patch
-Patch1:		aumix-pl.po.patch
+Patch0:		aumix-pl.po.patch
+Patch1:		aumix-home_etc.patch
 URL:		http://www.jpj.net/~trevor/aumix.html
 BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	gpm-devel
