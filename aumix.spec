@@ -70,7 +70,7 @@ Summary(pl):	Zapisuje/odtwarza ustawienia przy zamkniêciu/starcie systemu
 Group:		Applications/Sound
 Group(pl):	Aplikacje/D¼wiêk
 Requires:	%{name} = %{version}
-Requires:	rc-scripts >= 0.2.0
+Prereq:		rc-scripts >= 0.2.0
 Obsoletes:	rhsound
 Conflicts:	alsa-utils
 
