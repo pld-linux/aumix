@@ -1,0 +1,68 @@
+#!/bin/sh
+#
+# aumix		Sound mixer setup.
+#
+# chkconfig:    345  85 15
+#
+# description:	Saves sound mixer's settings on system shutdown and restores
+#		them on system startup.
+
+# Source function library
+. /etc/rc.d/init.d/functions
+
+# See how we were called.
+case "$1" in
+  start)
+	# Check if the service is already running?
+	if [ ! -f /var/lock/subsys/aumix ]; then
+		show "Setting up sound card mixer"
+		busy
+		aumix -f /etc/aumixrc -L >/dev/null
+		RETVAL=$?
+		[ $RETVAL -eq 0 ] && touch /var/lock/subsys/aumix
+		ok
+	else
+		# show "%s service is already running." <service>
+		nls "Sound card mixer is already set up"
+		exit 1
+	fi
+        ;;
+  stop)
+        # Stop daemons.
+	if [ -f /var/lock/subsys/aumix ]; then
+		show "Saving sound card mixer's settings"
+		busy
+		aumix -f /etc/aumixrc -S
+		rm -f /var/lock/subsys/aumix >/dev/null 2>&1
+		ok
+	else
+		nls "Sound card mixer hasn't been set up"
+		exit 1
+	fi	
+        ;;
+  restart)
+        $0 stop
+	$0 start
+        ;;
+  save)
+	show "Saving sound card mixer's settings"
+	busy
+	aumix -f /etc/aumixrc -S
+	ok
+  	;;
+  restore)
+	show "Setting up sound card mixer"
+	busy
+	aumix -f /etc/aumixrc -L >/dev/null
+	ok
+	;;
+  status)
+	status aumix
+	exit $?
+        ;;
+  *)
+	msg_Usage "$0 {start|stop|status|restart|save|restore}"
+        exit 1
+esac
+
+exit $RETVAL
