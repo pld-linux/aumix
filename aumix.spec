@@ -13,7 +13,7 @@ Group:		Applications/Sound
 Group(pl):	Aplikacje/D╪wiЙk
 Source0:	http://www.jpj.net/~trevor/aumix/%{name}-%{version}.tar.gz
 Source1:	xaumix.desktop
-Patch:		aumix-etc.patch
+Patch0:		aumix-etc.patch
 URL:            http://www.jpj.net/~trevor/aumix.html
 BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	gpm-devel
@@ -60,7 +60,7 @@ CD, м╕крофону, синтезатор╕в на звуков╕й плат╕, так ╕ вих╕дний р╕вень.
 
 %prep
 %setup -q
-%patch -p1
+%patch0 -p1
 
 %build
 autoconf
