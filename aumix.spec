@@ -31,7 +31,6 @@ BuildRequires:	ncurses-devel >= 5.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	aumix-gtk
 Obsoletes:	aumix-X11
-Conflicts:	aumix-gtk
 
 %description
 This program provides a tty-based, interactive method of controlling a
