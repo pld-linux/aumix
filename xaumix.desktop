@@ -2,10 +2,11 @@
 Name=xaumix
 Comment=Mixer audio
 Comment[es]=Mezclador de audio
-Comment[pl]=Mikser d¼wiêku
-Comment[pt]=Mixador de áudio
+Comment[pl]=Mikser dÅºwiÄ™ku
+Comment[pt]=Mixador de Ã¡udio
 Exec=xaumix
 Icon=aumix.xpm
 MiniIcon=aumix-mini.xpm
 Terminal=0
 Type=Application
+# vi: encoding=utf-8
