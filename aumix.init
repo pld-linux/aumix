@@ -67,27 +67,27 @@ case "$1" in
 	if [ $? = 0 ]; then
 		lsmod | grep -q "\(sound\|audio\)"
 		if [ $? = 0 ]; then
-			echo "Modular sound card detected."
+			nls "Modular sound card detected."
 		else
-			echo "Monolithic sound card detected."
+			nls "Monolithic sound card detected."
 		fi
  
 		cat /dev/sndstat 2> /dev/null | grep -A 1 "Midi devices:" | grep -q [0-9]:
 		if [ $? = 0 ]; then
-			echo "MIDI device present."
+			nls "MIDI device present."
 		else
 			cat /dev/sndstat >/dev/null 2>&1
 			if [ $? = 0 ]; then
-				echo "MIDI device not detected."
+				nls "MIDI device not detected."
 			fi
 		fi    
 
 	else
-		echo "Sound card not configured."
+		nls "Sound card not configured."
         fi
         ;;
   *)
-	msg_usage "$0 {start|stop|status|restart|save|restore}"
+	msg_usage "$0 {start|stop|restart|save|restore|status}"
         exit 1
 esac
 
