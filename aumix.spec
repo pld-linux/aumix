@@ -98,7 +98,7 @@ LDFLAGS="-s"
 export CFLAGS LDFLAGS
 %configure --without-gtk
 
-make
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
