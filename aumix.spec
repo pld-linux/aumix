@@ -82,12 +82,12 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc {AUTHORS,BUGS,ChangeLog,NEWS,README}.gz
 
-%lang(de)    /usr/share/locale/de/LC_MESSAGES/aumix.mo
-%lang(es)    /usr/share/locale/es/LC_MESSAGES/aumix.mo
-%lang(pl)    /usr/share/locale/pl/LC_MESSAGES/aumix.mo
-%lang(pt_BR) /usr/share/locale/pt_BR/LC_MESSAGES/aumix.mo
-%lang(ru)    /usr/share/locale/ru/LC_MESSAGES/aumix.mo
-%lang(ua)    /usr/share/locale/ua/LC_MESSAGES/aumix.mo
+%lang(de)    %{_datadir}/locale/de/LC_MESSAGES/aumix.mo
+%lang(es)    %{_datadir}/locale/es/LC_MESSAGES/aumix.mo
+%lang(pl)    %{_datadir}/locale/pl/LC_MESSAGES/aumix.mo
+%lang(pt_BR) %{_datadir}/locale/pt_BR/LC_MESSAGES/aumix.mo
+%lang(ru)    %{_datadir}/locale/ru/LC_MESSAGES/aumix.mo
+%lang(ua)    %{_datadir}/locale/ua/LC_MESSAGES/aumix.mo
 
 %attr(755,root,root) /usr/bin/aumix
 %{_mandir}/man1/*
