@@ -89,8 +89,8 @@ Summary:	Saves/restores mixer settings on system shutdown/startup
 Summary(pl):	Zapisuje/odtwarza ustawienia przy zamkniêciu/starcie systemu
 Group:		Applications/Sound
 Requires:	%{name} = %{version}
-Prereq:		rc-scripts >= 0.2.0
-Prereq:		/sbin/chkconfig
+PreReq:		rc-scripts >= 0.2.0
+Requires(post,preun):	/sbin/chkconfig
 Obsoletes:	rhsound
 Conflicts:	alsa-utils
 
