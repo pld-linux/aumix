@@ -95,7 +95,7 @@ rm -rf $RPM_BUILD_ROOT
 %changelog
 * Wed May  5 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [1.18.3-1]
-- included de, fr, ru, ua trznstations from dis tar ball,
+- included de, fr, ru, ua translations from dis tar ball,
 - recompiled on new rpm.
 
 * Mon Apr  5 1999 Piotr Czerwiñski <pius@pld.org.pl>
