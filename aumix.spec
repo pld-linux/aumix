@@ -1,4 +1,4 @@
-# NOTE: Please keep in sync with aumix-gtk.
+# NOTE:		Please keep in sync with aumix-gtk.
 Summary:	curses based audio mixer
 Summary(de):	Audio-Mixer auf curses-Basis
 Summary(fr):	Mixer audio basé sur curses
@@ -26,31 +26,33 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	aumix-gtk
 
 %description
-This program provides a tty-based, interactive method of controlling a 
+This program provides a tty-based, interactive method of controlling a
 sound card's mixer. It lets you adjust the input levels from the CD,
 microphone, and onboard synthesizers as well as the output volume.
 
 %description -l de
-Dieses Programm bietet eine interaktive Methode auf tty-Basis zur Steuerung
-eines Soundkarten-Mixers. Sie können damit die Eingangspegel der CD, des
-Mikrophons und von Synthesizer-Karten sowie auch die Ausgabelautstärke
-regeln.
+Dieses Programm bietet eine interaktive Methode auf tty-Basis zur
+Steuerung eines Soundkarten-Mixers. Sie können damit die Eingangspegel
+der CD, des Mikrophons und von Synthesizer-Karten sowie auch die
+Ausgabelautstärke regeln.
 
 %description -l fr
-Ce programme offre une méthode intaractive en mode texte pour contrôler
-le mixer des cartes son. Il permet d'ajuster les niveaux d'entrée du CD,
-du micro et des synthétiseurs de la carte, tout comme le volume de sortie.
+Ce programme offre une méthode intaractive en mode texte pour
+contrôler le mixer des cartes son. Il permet d'ajuster les niveaux
+d'entrée du CD, du micro et des synthétiseurs de la carte, tout comme
+le volume de sortie.
 
 %description -l pl
-Ten program przynosi bazuj±c± na tty, interaktywn± metodê kontrolowania
-miksera karty d¼wiêkowej. aumix pozwala zmieniaæ poziom sygna³u
-nadchodz±cego z CD, mikrofonu i syntetyzerów tak samo jak poziom
-sygna³u wyj¶ciowego.
+Ten program przynosi bazuj±c± na tty, interaktywn± metodê
+kontrolowania miksera karty d¼wiêkowej. aumix pozwala zmieniaæ poziom
+sygna³u nadchodz±cego z CD, mikrofonu i syntetyzerów tak samo jak
+poziom sygna³u wyj¶ciowego.
 
 %description -l tr
 Bu program metin ekranda, etkileşimli olarak ses kartı mixer denetimi
-yapmanızı saglar. Çıktı sesinin yanısıra, CD, mikrofon ve panel üzerindeki
-birleştiriciden girdi seviyelerini ayarlamanıza olanak verir.
+yapmanızı saglar. Çıktı sesinin yanısıra, CD, mikrofon ve panel
+üzerindeki birleştiriciden girdi seviyelerini ayarlamanıza olanak
+verir.
 
 %description -l ru
 üÔÁ ĞÒÏÇÒÁÍÍÁ - ËÏÎÓÏÌØÎÙÊ, ÉÎÔÅÒÁËÔÉ×ÎÙÊ ÒÅÇÕÌÑÔÏÒ ÕÒÏ×ÎÅÊ ÍÉËÛÅÒÁ
@@ -58,9 +60,9 @@ birleştiriciden girdi seviyelerini ayarlamanıza olanak verir.
 CD, ÍÉËÒÏÆÏÎÁ, ÓÉÎÔÅÚÁÔÏÒÏ× ÎÁ Ú×ÕËÏ×ÏÊ ĞÌÁÔÅ, ÔÁË É ×ÙÈÏÄÎÏÊ ÕÒÏ×ÅÎØ.
 
 %description -l uk
-ãÑ ĞÒÏÇÒÁÍÁ - ËÏÎÓÏÌØÎÉÊ, ¦ÎÔÅÒÁËÔÉ×ÎÉÊ ÒÅÇÕÌÑÔÏÒ Ò¦×ÎÅÊ Í¦ËÛÅÒÕ Ú×ÕËÏ×Ï§
-ËÁÒÔËÉ. ÷ÏÎÁ ÄÏÚ×ÏÌÑ¤ ÚÍ¦ÎÀ×ÁÔÉ ÑË ×È¦ÄÎ¦ Ò¦×Î¦ ÓÉÇÎÁÌ¦× Ú CD, Í¦ËÒÏÆÏÎÕ,
-ÓÉÎÔÅÚÁÔÏÒ¦× ÎÁ Ú×ÕËÏ×¦Ê ĞÌÁÔ¦, ÔÁË ¦ ×ÉÈ¦ÄÎÉÊ Ò¦×ÅÎØ.
+ãÑ ĞÒÏÇÒÁÍÁ - ËÏÎÓÏÌØÎÉÊ, ¦ÎÔÅÒÁËÔÉ×ÎÉÊ ÒÅÇÕÌÑÔÏÒ Ò¦×ÎÅÊ Í¦ËÛÅÒÕ
+Ú×ÕËÏ×Ï§ ËÁÒÔËÉ. ÷ÏÎÁ ÄÏÚ×ÏÌÑ¤ ÚÍ¦ÎÀ×ÁÔÉ ÑË ×È¦ÄÎ¦ Ò¦×Î¦ ÓÉÇÎÁÌ¦× Ú
+CD, Í¦ËÒÏÆÏÎÕ, ÓÉÎÔÅÚÁÔÏÒ¦× ÎÁ Ú×ÕËÏ×¦Ê ĞÌÁÔ¦, ÔÁË ¦ ×ÉÈ¦ÄÎÉÊ Ò¦×ÅÎØ.
 
 %package OSS-preserve-settings
 Summary:	Saves/restores mixer settings on system shutdown/startup
@@ -73,12 +75,13 @@ Obsoletes:	rhsound
 Conflicts:	alsa-utils
 
 %description OSS-preserve-settings
-This package contains script, which will save settings of sound card's mixer
-on system shutdown and restore them on system startup.
+This package contains script, which will save settings of sound card's
+mixer on system shutdown and restore them on system startup.
 
 %description -l pl OSS-preserve-settings
-Ten pakiet zawiera skrypt, który zapisuje ustawienia miksera karty d¼wiêkowej
-przy zamkniêciu systemu i odtwarza je po uruchomieniu systemu.
+Ten pakiet zawiera skrypt, który zapisuje ustawienia miksera karty
+d¼wiêkowej przy zamkniêciu systemu i odtwarza je po uruchomieniu
+systemu.
 
 %prep
 %setup -q
@@ -100,14 +103,14 @@ make
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_applnkdir}/Multimedia \
-	$RPM_BUILD_ROOT/usr/X11R6/{bin,share/pixmaps} \
+$RPM_BUILD_ROOT%{_prefix}/X11R6/{bin,share/pixmaps} \
 	$RPM_BUILD_ROOT%{_sysconfdir}/rc.d/init.d
 
 make install DESTDIR=$RPM_BUILD_ROOT
 
-mv $RPM_BUILD_ROOT%{_bindir}/xaumix $RPM_BUILD_ROOT/usr/X11R6/bin
+mv $RPM_BUILD_ROOT%{_bindir}/xaumix $RPM_BUILD_ROOT%{_prefix}/X11R6/bin
 mv $RPM_BUILD_ROOT%{_datadir}/aumix/*xpm \
-	$RPM_BUILD_ROOT/usr/X11R6/share/pixmaps
+$RPM_BUILD_ROOT%{_prefix}/X11R6/share/pixmaps
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/rc.d/init.d/aumix
 install %{SOURCE2} $RPM_BUILD_ROOT%{_applnkdir}/Multimedia
@@ -145,9 +148,9 @@ rm -rf $RPM_BUILD_ROOT
 %doc {AUTHORS,BUGS,ChangeLog,NEWS,README}.gz
 
 %attr(755,root,root) %{_bindir}/aumix
-%attr(755,root,root) /usr/X11R6/bin/xaumix
+%attr(755,root,root) %{_prefix}/X11R6/bin/xaumix
 
-/usr/X11R6/share/pixmaps/*.xpm
+%{_prefix}/X11R6/share/pixmaps/*.xpm
 %{_applnkdir}/Multimedia/xaumix.desktop
 
 %{_datadir}/aumix
