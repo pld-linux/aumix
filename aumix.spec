@@ -90,6 +90,7 @@ Group:		Applications/Sound
 Requires:	%{name} = %{version}
 PreReq:		rc-scripts >= 0.2.0
 Requires(post,preun):	/sbin/chkconfig
+Obsoletes:	aumix-OSS-preserve-settings
 Obsoletes:	rhsound
 Conflicts:	alsa-utils
 
