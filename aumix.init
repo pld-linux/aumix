@@ -4,7 +4,7 @@
 #
 # chkconfig:	345 85 15
 #
-# description:	Saves sound mixer's settings on system shutdown and restores
+# description:	Saves sound mixer's settings on system shutdown and restores \
 #		them on system startup.
 
 # Source function library
