@@ -10,8 +10,9 @@
 # Source function library
 . /etc/rc.d/init.d/functions
 
-. /etc/sysconfig/aumix
+[ -f /etc/sysconfig/aumix ] && /etc/sysconfig/aumix
 
+RETVAL=$?
 # See how we were called.
 case "$1" in
   start)
@@ -20,16 +21,16 @@ case "$1" in
 		show "Setting up sound card mixer"
 		busy
 		if [ "$AUMIX_AUTO_INIT" = "yes" ]; then
-			aumix -f /etc/aumixrc -L >/dev/null
+			daemon aumix -f /etc/aumixrc -L >/dev/null
 			RETVAL=$?
+			[ $RETVAL -eq 0 ] && ok || fail
 			[ $RETVAL -eq 0 ] && touch /var/lock/subsys/aumix
 		else
 			touch /var/lock/subsys/aumix
+			ok
 		fi
-		ok
 	else
 		nls "Sound card mixer is already set up"
-		exit 1
 	fi
         ;;
   stop)
@@ -43,12 +44,12 @@ case "$1" in
 		ok
 	else
 		nls "Sound card mixer hasn't been set up"
-		exit 1
 	fi	
         ;;
-  restart|reload)
+  restart|force-reload)
         $0 stop
 	$0 start
+	exit $0
         ;;
   save)
 	show "Saving sound card mixer's settings"
@@ -56,7 +57,7 @@ case "$1" in
 	aumix -f /etc/aumixrc -S
 	ok
   	;;
-  restore)
+  restore|reload)
 	show "Setting up sound card mixer"
 	busy
 	aumix -f /etc/aumixrc -L >/dev/null
@@ -87,8 +88,8 @@ case "$1" in
         fi
         ;;
   *)
-	msg_usage "$0 {start|stop|restart|reload|save|restore|status}"
-        exit 1
+	msg_usage "$0 {start|stop|restart|reload|force-reload|save|restore|status}"
+        exit 3
 esac
 
 exit $RETVAL
