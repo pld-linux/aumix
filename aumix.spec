@@ -6,8 +6,8 @@ Summary(pl):	Mikser audio bazuj±cy na curses
 Summary(ru):	áÕÄÉÏ ÍÉËÛÅÒ ÎÁ ÂÁÚÅ ÂÉÂÌÉÏÔÅËÉ curses
 Summary(uk):	áÕÄ¦Ï Í¦ËÛÅÒ, ÂÁÚÏ×ÁÎÉÊ ÎÁ Â¦ÂÌÉÏÔÅÃ¦ curses
 Name:		aumix
-Version:	2.5
-Release:	3
+Version:	2.6
+Release:	1
 License:	GPL
 Group:		Applications/Sound
 Group(pl):	Aplikacje/D¼wiêk
@@ -22,7 +22,9 @@ BuildRequires:	gettext-devel
 BuildRequires:	XFree86-devel
 BuildRequires:	gtk+-devel >= 1.2.0
 BuildRequires:	glib-devel >= 1.2.0
+Requires:	rc-scripts >= 0.2.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+Obsoletes:	rhsound
 
 %description
 This program provides a tty-based, interactive method of controlling a 
