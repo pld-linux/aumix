@@ -1,3 +1,4 @@
+# NOTE: Please keep in sync with aumix-gtk.
 Summary:	curses based audio mixer
 Summary(de):	Audio-Mixer auf curses-Basis
 Summary(fr):	Mixer audio basé sur curses
@@ -7,22 +8,22 @@ Summary(ru):	áÕÄÉÏ ÍÉËÛÅÒ ÎÁ ÂÁÚÅ ÂÉÂÌÉÏÔÅËÉ curses
 Summary(uk):	áÕÄ¦Ï Í¦ËÛÅÒ, ÂÁÚÏ×ÁÎÉÊ ÎÁ Â¦ÂÌÉÏÔÅÃ¦ curses
 Name:		aumix
 Version:	2.6
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/Sound
 Group(pl):	Aplikacje/D¼wiêk
 Source0:	http://www.jpj.net/~trevor/aumix/%{name}-%{version}.tar.gz
 Source1:	aumix.init
-Source2:	aumix.desktop
+Source2:	xaumix.desktop
 Patch0:		aumix-home_etc.patch
+Patch1:		aumix-nogtk.patch
+Patch2:		aumix-xaumix.patch
 URL:		http://www.jpj.net/~trevor/aumix.html
 BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	gpm-devel
 BuildRequires:	gettext-devel
-BuildRequires:	XFree86-devel
-BuildRequires:	gtk+-devel >= 1.2.0
-BuildRequires:	glib-devel >= 1.2.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+Obsoletes:	aumix-gtk
 
 %description
 This program provides a tty-based, interactive method of controlling a 
@@ -82,6 +83,8 @@ przy zamkniêciu systemu i odtwarza je po uruchomieniu systemu.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
+%patch2 -p1
 
 %build
 autoconf
@@ -90,7 +93,7 @@ gettextize --copy --force
 CFLAGS="$RPM_OPT_FLAGS -I/usr/include/ncurses"
 LDFLAGS="-s"
 export CFLAGS LDFLAGS
-%configure 
+%configure --without-gtk
 
 make
 
@@ -145,12 +148,11 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) /usr/X11R6/bin/xaumix
 
 /usr/X11R6/share/pixmaps/*.xpm
-%{_applnkdir}/Multimedia/aumix.desktop
+%{_applnkdir}/Multimedia/xaumix.desktop
 
 %{_datadir}/aumix
 %{_mandir}/man1/*
 
 %files OSS-preserve-settings
 %defattr(644,root,root,755)
-
 %attr(754,root,root) %{_sysconfdir}/rc.d/init.d/aumix
