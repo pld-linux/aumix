@@ -21,9 +21,7 @@ BuildRequires:	gettext-devel
 BuildRequires:	XFree86-devel
 BuildRequires:	gtk+-devel >= 1.2.0
 BuildRequires:	glib-devel >= 1.2.0
-BuildRoot:	/tmp/%{name}-%{version}-root
-
-%define		_applnkdir	/usr/X11R6/share/applnk
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 This program provides a tty-based, interactive method of controlling a 
@@ -61,7 +59,6 @@ CD, микрофона, синтезаторов на звуковой плате, так и выходной уровень.
 Ця програма - консольний, ╕нтерактивний регулятор р╕вней м╕кшеру звуково╖
 картки. Вона дозволя╓ зм╕нювати як вх╕дн╕ р╕вн╕ сигнал╕в з CD, м╕крофону,
 синтезатор╕в на звуков╕й плат╕, так ╕ вих╕дний р╕вень.
-
 
 %prep
 %setup -q
