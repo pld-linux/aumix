@@ -83,7 +83,7 @@ CD, микрофона, синтезаторов на звуковой плате, так и выходной уровень.
 звуково╖ картки. Вона дозволя╓ зм╕нювати як вх╕дн╕ р╕вн╕ сигнал╕в з
 CD, м╕крофону, синтезатор╕в на звуков╕й плат╕, так ╕ вих╕дний р╕вень.
 
-%package OSS-preserve-settings
+%package preserve-settings
 Summary:	Saves/restores mixer settings on system shutdown/startup
 Summary(pl):	Zapisuje/odtwarza ustawienia przy zamkniЙciu/starcie systemu
 Group:		Applications/Sound
@@ -93,11 +93,11 @@ Requires(post,preun):	/sbin/chkconfig
 Obsoletes:	rhsound
 Conflicts:	alsa-utils
 
-%description OSS-preserve-settings
+%description preserve-settings
 This package contains script, which will save settings of sound card's
 mixer on system shutdown and restore them on system startup.
 
-%description OSS-preserve-settings -l pl
+%description preserve-settings -l pl
 Ten pakiet zawiera skrypt, ktСry zapisuje ustawienia miksera karty
 d╪wiЙkowej przy zamkniЙciu systemu i odtwarza je po uruchomieniu
 systemu.
@@ -144,7 +144,7 @@ rm -f $RPM_BUILD_ROOT%{_datadir}/aumix/aumix.xpm
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post OSS-preserve-settings
+%post preserve-settings
 /sbin/chkconfig --add aumix
 if [ ! -f /var/lock/subsys/aumix ]; then
 	echo "Run \"/etc/rc.d/init.d/aumix start\" to initialize saving/restoring"
@@ -152,7 +152,7 @@ if [ ! -f /var/lock/subsys/aumix ]; then
 	echo "setup sound volume."
 fi
 
-%preun OSS-preserve-settings
+%preun preserve-settings
 if [ "$1" = "0" ]; then
 	if [ -f /var/lock/subsys/aumix ]; then
 		/etc/rc.d/init.d/aumix stop
@@ -171,7 +171,7 @@ fi
 %{_pixmapsdir}/*.png
 %{_desktopdir}/aumix.desktop
 
-%files OSS-preserve-settings
+%files preserve-settings
 %defattr(644,root,root,755)
 %attr(754,root,root) /etc/rc.d/init.d/aumix
 %config(noreplace) %verify(not size mtime md5) /etc/sysconfig/aumix
