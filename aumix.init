@@ -40,7 +40,7 @@ case "$1" in
 		ok
 	else
 		nls "Sound card mixer hasn't been set up"
-	fi	
+	fi
 	;;
   restart|force-reload)
 	$0 stop
@@ -64,7 +64,7 @@ case "$1" in
 		else
 			nls "Monolithic sound card detected."
 		fi
- 
+
 		cat /dev/sndstat 2> /dev/null | grep -A 1 "Midi devices:" | grep -q [0-9]:
 		if [ $? = 0 ]; then
 			nls "MIDI device present."
