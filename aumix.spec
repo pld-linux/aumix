@@ -87,7 +87,7 @@ CD, м╕крофону, синтезатор╕в на звуков╕й плат╕, так ╕ вих╕дний р╕вень.
 Summary:	Saves/restores mixer settings on system shutdown/startup
 Summary(pl):	Zapisuje/odtwarza ustawienia przy zamkniЙciu/starcie systemu
 Group:		Applications/Sound
-PreReq:		rc-scripts >= 0.2.0
+Requires:	rc-scripts >= 0.2.0
 Requires(post,preun):	/sbin/chkconfig
 Requires:	%{name} = %{version}-%{release}
 Obsoletes:	aumix-OSS-preserve-settings
@@ -163,7 +163,7 @@ fi
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS BUGS ChangeLog NEWS README TODO
-%config(noreplace,missingok) %verify(not size mtime md5) %{_sysconfdir}/aumixrc
+%config(noreplace,missingok) %verify(not md5 mtime size) %{_sysconfdir}/aumixrc
 
 %attr(755,root,root) %{_bindir}/aumix
 %{_mandir}/man1/*
@@ -174,4 +174,4 @@ fi
 %files preserve-settings
 %defattr(644,root,root,755)
 %attr(754,root,root) /etc/rc.d/init.d/aumix
-%config(noreplace) %verify(not size mtime md5) /etc/sysconfig/aumix
+%config(noreplace) %verify(not md5 mtime size) /etc/sysconfig/aumix
