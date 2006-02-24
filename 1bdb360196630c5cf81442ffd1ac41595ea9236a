@@ -1,0 +1,11 @@
+- sync aumix-gtk with aumix;
+- aumix-gtk:
+  - typo,
+  - added en, ru and uk summaries and descriptions,
+  - new desktop file with Terminal=0,
+  - added png icon in place of xpm one,
+- aumix:
+  - %{_sysconfdir} mustn't be /etc, install it,
+  - removed xpm icon,
+- touch replaced with :>
+- release 13.
