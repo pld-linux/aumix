@@ -147,16 +147,14 @@ rm -rf $RPM_BUILD_ROOT
 %post preserve-settings
 /sbin/chkconfig --add aumix
 if [ ! -f /var/lock/subsys/aumix ]; then
-	echo "Run \"/etc/rc.d/init.d/aumix start\" to initialize saving/restoring"
+	echo "Run \"/sbin/service aumix start\" to initialize saving/restoring"
 	echo "sound card mixer's settings on system shutdown/startup, and then"
 	echo "setup sound volume."
 fi
 
 %preun preserve-settings
 if [ "$1" = "0" ]; then
-	if [ -f /var/lock/subsys/aumix ]; then
-		/etc/rc.d/init.d/aumix stop
-	fi
+	%service aumix stop
 	/sbin/chkconfig --del aumix
 fi
 
