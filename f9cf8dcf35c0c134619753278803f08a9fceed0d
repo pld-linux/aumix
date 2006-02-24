@@ -1,0 +1,3 @@
+- use rpm features (gzipping, %debug, %config), automake-related changes
+- added sysconfig in OSS subpackage - save/init can be {dis,en}abled separately
+- release 2
