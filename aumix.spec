@@ -1,13 +1,13 @@
 # NOTE:		Please keep in sync with aumix-gtk.
 Summary:	curses based audio mixer
-Summary(de):	Audio-Mixer auf curses-Basis
-Summary(es):	Mezclador de audio basado en curses
-Summary(fr):	Mixer audio basé sur curses
-Summary(tr):	Metin ekranlý ses karýþtýrýcý
-Summary(pl):	Mikser audio bazuj±cy na curses
-Summary(pt_BR):	Mixador de áudio baseado em curses
-Summary(ru):	áÕÄÉÏ ÍÉËÛÅÒ ÎÁ ÂÁÚÅ ÂÉÂÌÉÏÔÅËÉ curses
-Summary(uk):	áÕÄ¦Ï Í¦ËÛÅÒ, ÂÁÚÏ×ÁÎÉÊ ÎÁ Â¦ÂÌÉÏÔÅÃ¦ curses
+Summary(de.UTF-8):   Audio-Mixer auf curses-Basis
+Summary(es.UTF-8):   Mezclador de audio basado en curses
+Summary(fr.UTF-8):   Mixer audio basÃ© sur curses
+Summary(tr.UTF-8):   Metin ekranlÄ± ses karÄ±ÅŸtÄ±rÄ±cÄ±
+Summary(pl.UTF-8):   Mikser audio bazujÄ…cy na curses
+Summary(pt_BR.UTF-8):   Mixador de Ã¡udio baseado em curses
+Summary(ru.UTF-8):   ÐÑƒÐ´Ð¸Ð¾ Ð¼Ð¸ÐºÑˆÐµÑ€ Ð½Ð° Ð±Ð°Ð·Ðµ Ð±Ð¸Ð±Ð»Ð¸Ð¾Ñ‚ÐµÐºÐ¸ curses
+Summary(uk.UTF-8):   ÐÑƒÐ´Ñ–Ð¾ Ð¼Ñ–ÐºÑˆÐµÑ€, Ð±Ð°Ð·Ð¾Ð²Ð°Ð½Ð¸Ð¹ Ð½Ð° Ð±Ñ–Ð±Ð»Ð¸Ð¾Ñ‚ÐµÑ†Ñ– curses
 Name:		aumix
 Version:	2.8
 Release:	4
@@ -37,55 +37,55 @@ This program provides a tty-based, interactive method of controlling a
 sound card's mixer. It lets you adjust the input levels from the CD,
 microphone, and onboard synthesizers as well as the output volume.
 
-%description -l de
+%description -l de.UTF-8
 Dieses Programm bietet eine interaktive Methode auf tty-Basis zur
-Steuerung eines Soundkarten-Mixers. Sie können damit die Eingangspegel
+Steuerung eines Soundkarten-Mixers. Sie kÃ¶nnen damit die Eingangspegel
 der CD, des Mikrophons und von Synthesizer-Karten sowie auch die
-Ausgabelautstärke regeln.
+AusgabelautstÃ¤rke regeln.
 
-%description -l es
-Este programa nos ofrece un método interactivo basado en tty de
+%description -l es.UTF-8
+Este programa nos ofrece un mÃ©todo interactivo basado en tty de
 control de mezclas de tarjetas de sonido. Deja que se ajuste los
-niveles de entrada del CD, micrófono, y sintetizadores, así como el
+niveles de entrada del CD, micrÃ³fono, y sintetizadores, asÃ­ como el
 volumen de salida.
 
-%description -l fr
-Ce programme offre une méthode intaractive en mode texte pour
-contrôler le mixer des cartes son. Il permet d'ajuster les niveaux
-d'entrée du CD, du micro et des synthétiseurs de la carte, tout comme
+%description -l fr.UTF-8
+Ce programme offre une mÃ©thode intaractive en mode texte pour
+contrÃ´ler le mixer des cartes son. Il permet d'ajuster les niveaux
+d'entrÃ©e du CD, du micro et des synthÃ©tiseurs de la carte, tout comme
 le volume de sortie.
 
-%description -l pl
-Ten pakiet dostarcza bazuj±c± na tty, interaktywn± metodê
-kontrolowania miksera karty d¼wiêkowej. aumix pozwala zmieniaæ poziom
-sygna³u nadchodz±cego z CD, mikrofonu i syntetyzerów, a tak¿e poziom
-sygna³u wyj¶ciowego.
+%description -l pl.UTF-8
+Ten pakiet dostarcza bazujÄ…cÄ… na tty, interaktywnÄ… metodÄ™
+kontrolowania miksera karty dÅºwiÄ™kowej. aumix pozwala zmieniaÄ‡ poziom
+sygnaÅ‚u nadchodzÄ…cego z CD, mikrofonu i syntetyzerÃ³w, a takÅ¼e poziom
+sygnaÅ‚u wyjÅ›ciowego.
 
-%description -l pt_BR
-Este programa oferece um método interativo baseado em tty de controle
-de mixagem de placas de som. Ele deixa você ajustar os níveis de
+%description -l pt_BR.UTF-8
+Este programa oferece um mÃ©todo interativo baseado em tty de controle
+de mixagem de placas de som. Ele deixa vocÃª ajustar os nÃ­veis de
 entrada do CD, microfone, e sintetizadores assim como o volume de
-saída.
+saÃ­da.
 
-%description -l tr
-Bu program metin ekranda, etkileþimli olarak ses kartý mixer denetimi
-yapmanýzý saglar. Çýktý sesinin yanýsýra, CD, mikrofon ve panel
-üzerindeki birleþtiriciden girdi seviyelerini ayarlamanýza olanak
+%description -l tr.UTF-8
+Bu program metin ekranda, etkileÅŸimli olarak ses kartÄ± mixer denetimi
+yapmanÄ±zÄ± saglar. Ã‡Ä±ktÄ± sesinin yanÄ±sÄ±ra, CD, mikrofon ve panel
+Ã¼zerindeki birleÅŸtiriciden girdi seviyelerini ayarlamanÄ±za olanak
 verir.
 
-%description -l ru
-üÔÁ ÐÒÏÇÒÁÍÍÁ - ËÏÎÓÏÌØÎÙÊ, ÉÎÔÅÒÁËÔÉ×ÎÙÊ ÒÅÇÕÌÑÔÏÒ ÕÒÏ×ÎÅÊ ÍÉËÛÅÒÁ
-Ú×ÕËÏ×ÏÊ ËÁÒÔÙ. ïÎÁ ÐÏÚ×ÏÌÑÅÔ ÉÚÍÅÎÑÔØ ËÁË ×ÈÏÄÎÙÅ ÕÒÏ×ÎÉ ÓÉÇÎÁÌÏ× Ó
-CD, ÍÉËÒÏÆÏÎÁ, ÓÉÎÔÅÚÁÔÏÒÏ× ÎÁ Ú×ÕËÏ×ÏÊ ÐÌÁÔÅ, ÔÁË É ×ÙÈÏÄÎÏÊ ÕÒÏ×ÅÎØ.
+%description -l ru.UTF-8
+Ð­Ñ‚Ð° Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ð¼Ð° - ÐºÐ¾Ð½ÑÐ¾Ð»ÑŒÐ½Ñ‹Ð¹, Ð¸Ð½Ñ‚ÐµÑ€Ð°ÐºÑ‚Ð¸Ð²Ð½Ñ‹Ð¹ Ñ€ÐµÐ³ÑƒÐ»ÑÑ‚Ð¾Ñ€ ÑƒÑ€Ð¾Ð²Ð½ÐµÐ¹ Ð¼Ð¸ÐºÑˆÐµÑ€Ð°
+Ð·Ð²ÑƒÐºÐ¾Ð²Ð¾Ð¹ ÐºÐ°Ñ€Ñ‚Ñ‹. ÐžÐ½Ð° Ð¿Ð¾Ð·Ð²Ð¾Ð»ÑÐµÑ‚ Ð¸Ð·Ð¼ÐµÐ½ÑÑ‚ÑŒ ÐºÐ°Ðº Ð²Ñ…Ð¾Ð´Ð½Ñ‹Ðµ ÑƒÑ€Ð¾Ð²Ð½Ð¸ ÑÐ¸Ð³Ð½Ð°Ð»Ð¾Ð² Ñ
+CD, Ð¼Ð¸ÐºÑ€Ð¾Ñ„Ð¾Ð½Ð°, ÑÐ¸Ð½Ñ‚ÐµÐ·Ð°Ñ‚Ð¾Ñ€Ð¾Ð² Ð½Ð° Ð·Ð²ÑƒÐºÐ¾Ð²Ð¾Ð¹ Ð¿Ð»Ð°Ñ‚Ðµ, Ñ‚Ð°Ðº Ð¸ Ð²Ñ‹Ñ…Ð¾Ð´Ð½Ð¾Ð¹ ÑƒÑ€Ð¾Ð²ÐµÐ½ÑŒ.
 
-%description -l uk
-ãÑ ÐÒÏÇÒÁÍÁ - ËÏÎÓÏÌØÎÉÊ, ¦ÎÔÅÒÁËÔÉ×ÎÉÊ ÒÅÇÕÌÑÔÏÒ Ò¦×ÎÅÊ Í¦ËÛÅÒÕ
-Ú×ÕËÏ×Ï§ ËÁÒÔËÉ. ÷ÏÎÁ ÄÏÚ×ÏÌÑ¤ ÚÍ¦ÎÀ×ÁÔÉ ÑË ×È¦ÄÎ¦ Ò¦×Î¦ ÓÉÇÎÁÌ¦× Ú
-CD, Í¦ËÒÏÆÏÎÕ, ÓÉÎÔÅÚÁÔÏÒ¦× ÎÁ Ú×ÕËÏ×¦Ê ÐÌÁÔ¦, ÔÁË ¦ ×ÉÈ¦ÄÎÉÊ Ò¦×ÅÎØ.
+%description -l uk.UTF-8
+Ð¦Ñ Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ð° - ÐºÐ¾Ð½ÑÐ¾Ð»ÑŒÐ½Ð¸Ð¹, Ñ–Ð½Ñ‚ÐµÑ€Ð°ÐºÑ‚Ð¸Ð²Ð½Ð¸Ð¹ Ñ€ÐµÐ³ÑƒÐ»ÑÑ‚Ð¾Ñ€ Ñ€Ñ–Ð²Ð½ÐµÐ¹ Ð¼Ñ–ÐºÑˆÐµÑ€Ñƒ
+Ð·Ð²ÑƒÐºÐ¾Ð²Ð¾Ñ— ÐºÐ°Ñ€Ñ‚ÐºÐ¸. Ð’Ð¾Ð½Ð° Ð´Ð¾Ð·Ð²Ð¾Ð»ÑÑ” Ð·Ð¼Ñ–Ð½ÑŽÐ²Ð°Ñ‚Ð¸ ÑÐº Ð²Ñ…Ñ–Ð´Ð½Ñ– Ñ€Ñ–Ð²Ð½Ñ– ÑÐ¸Ð³Ð½Ð°Ð»Ñ–Ð² Ð·
+CD, Ð¼Ñ–ÐºÑ€Ð¾Ñ„Ð¾Ð½Ñƒ, ÑÐ¸Ð½Ñ‚ÐµÐ·Ð°Ñ‚Ð¾Ñ€Ñ–Ð² Ð½Ð° Ð·Ð²ÑƒÐºÐ¾Ð²Ñ–Ð¹ Ð¿Ð»Ð°Ñ‚Ñ–, Ñ‚Ð°Ðº Ñ– Ð²Ð¸Ñ…Ñ–Ð´Ð½Ð¸Ð¹ Ñ€Ñ–Ð²ÐµÐ½ÑŒ.
 
 %package preserve-settings
 Summary:	Saves/restores mixer settings on system shutdown/startup
-Summary(pl):	Zapisuje/odtwarza ustawienia przy zamkniêciu/starcie systemu
+Summary(pl.UTF-8):   Zapisuje/odtwarza ustawienia przy zamkniÄ™ciu/starcie systemu
 Group:		Applications/Sound
 Requires:	rc-scripts >= 0.2.0
 Requires(post,preun):	/sbin/chkconfig
@@ -98,9 +98,9 @@ Conflicts:	alsa-utils
 This package contains script, which will save settings of sound card's
 mixer on system shutdown and restore them on system startup.
 
-%description preserve-settings -l pl
-Ten pakiet zawiera skrypt, który zapisuje ustawienia miksera karty
-d¼wiêkowej przy zamkniêciu systemu i odtwarza je po uruchomieniu
+%description preserve-settings -l pl.UTF-8
+Ten pakiet zawiera skrypt, ktÃ³ry zapisuje ustawienia miksera karty
+dÅºwiÄ™kowej przy zamkniÄ™ciu systemu i odtwarza je po uruchomieniu
 systemu.
 
 %prep
