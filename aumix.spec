@@ -1,13 +1,13 @@
 # NOTE:		Please keep in sync with aumix-gtk.
 Summary:	curses based audio mixer
-Summary(de.UTF-8):   Audio-Mixer auf curses-Basis
-Summary(es.UTF-8):   Mezclador de audio basado en curses
-Summary(fr.UTF-8):   Mixer audio basé sur curses
-Summary(tr.UTF-8):   Metin ekranlı ses karıştırıcı
-Summary(pl.UTF-8):   Mikser audio bazujący na curses
-Summary(pt_BR.UTF-8):   Mixador de áudio baseado em curses
-Summary(ru.UTF-8):   Аудио микшер на базе библиотеки curses
-Summary(uk.UTF-8):   Аудіо мікшер, базований на біблиотеці curses
+Summary(de.UTF-8):	Audio-Mixer auf curses-Basis
+Summary(es.UTF-8):	Mezclador de audio basado en curses
+Summary(fr.UTF-8):	Mixer audio basé sur curses
+Summary(tr.UTF-8):	Metin ekranlı ses karıştırıcı
+Summary(pl.UTF-8):	Mikser audio bazujący na curses
+Summary(pt_BR.UTF-8):	Mixador de áudio baseado em curses
+Summary(ru.UTF-8):	Аудио микшер на базе библиотеки curses
+Summary(uk.UTF-8):	Аудіо мікшер, базований на біблиотеці curses
 Name:		aumix
 Version:	2.8
 Release:	4
@@ -85,7 +85,7 @@ CD, мікрофону, синтезаторів на звуковій плат�
 
 %package preserve-settings
 Summary:	Saves/restores mixer settings on system shutdown/startup
-Summary(pl.UTF-8):   Zapisuje/odtwarza ustawienia przy zamknięciu/starcie systemu
+Summary(pl.UTF-8):	Zapisuje/odtwarza ustawienia przy zamknięciu/starcie systemu
 Group:		Applications/Sound
 Requires:	rc-scripts >= 0.2.0
 Requires(post,preun):	/sbin/chkconfig
