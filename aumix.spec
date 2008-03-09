@@ -10,8 +10,8 @@ Summary(ru.UTF-8):	Аудио микшер на базе библиотеки cu
 Summary(uk.UTF-8):	Аудіо мікшер, базований на біблиотеці curses
 Name:		aumix
 Version:	2.8
-Release:	4
-License:	GPL
+Release:	5
+License:	GPL v2+
 Group:		Applications/Sound
 Source0:	http://www.jpj.net/~trevor/aumix/%{name}-%{version}.tar.bz2
 # Source0-md5:	dc3fc7209752207c23e7c94ab886b340
@@ -28,9 +28,9 @@ BuildRequires:	automake
 BuildRequires:	gettext-devel
 BuildRequires:	gpm-devel
 BuildRequires:	ncurses-devel >= 5.0
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	aumix-gtk
 Obsoletes:	aumix-X11
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 This program provides a tty-based, interactive method of controlling a
@@ -92,7 +92,7 @@ Requires(post,preun):	/sbin/chkconfig
 Requires:	%{name} = %{version}-%{release}
 Obsoletes:	aumix-OSS-preserve-settings
 Obsoletes:	rhsound
-Conflicts:	alsa-utils
+Conflicts:	alsa-utils-init
 
 %description preserve-settings
 This package contains script, which will save settings of sound card's
