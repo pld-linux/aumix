@@ -12,11 +12,7 @@
 
 [ -f /etc/sysconfig/aumix ] && . /etc/sysconfig/aumix
 
-RETVAL=0
-# See how we were called.
-case "$1" in
-  start)
-	# Check if the service is already running?
+start() {
 	if [ ! -f /var/lock/subsys/aumix ]; then
 		show "Setting up sound card mixer"
 		busy
@@ -28,8 +24,9 @@ case "$1" in
 	else
 		nls "Sound card mixer is already set up"
 	fi
-	;;
-  stop)
+}
+
+stop() {
 	if [ -f /var/lock/subsys/aumix ]; then
 		show "Saving sound card mixer's settings"
 		busy
@@ -41,19 +38,38 @@ case "$1" in
 	else
 		nls "Sound card mixer hasn't been set up"
 	fi
+}
+
+RETVAL=0
+# See how we were called.
+case "$1" in
+  start)
+	start
 	;;
-  restart|force-reload)
-	$0 stop
-	$0 start
+  stop)
+	stop
+	;;
+  restart)
+	stop
+	start
+	;;
+  try-restart)
+	if [ -f /var/lock/subsys/aumix ]; then
+		stop
+		start
+	else
+		nls "Sound card mixer hasn't been set up"
+	fi
 	;;
   save)
 	run_cmd "Saving sound card mixer's settings" aumix -f /etc/aumixrc -S
 	;;
-  restore|reload)
+  restore|reload|force-reload)
 	show "Setting up sound card mixer"
 	busy
 	aumix -f /etc/aumixrc -L >/dev/null
-	ok
+	RETVAL=$?
+	[ $RETVAL -eq 0 ] && ok || fail
 	;;
   status)
 	cat /proc/devices | grep -q "\(sparcaudio\|sound\)"
@@ -80,7 +96,7 @@ case "$1" in
 	fi
 	;;
   *)
-	msg_usage "$0 {start|stop|restart|reload|force-reload|save|restore|status}"
+	msg_usage "$0 {start|stop|restart|try-restart|reload|force-reload|save|restore|status}"
 	exit 3
 esac
 
