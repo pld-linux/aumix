@@ -9,19 +9,18 @@ Summary(pt_BR.UTF-8):	Mixador de áudio baseado em curses
 Summary(ru.UTF-8):	Аудио микшер на базе библиотеки curses
 Summary(uk.UTF-8):	Аудіо мікшер, базований на біблиотеці curses
 Name:		aumix
-Version:	2.8
-Release:	8
+Version:	2.9.1
+Release:	1
 License:	GPL v2+
 Group:		Applications/Sound
-Source0:	http://www.jpj.net/~trevor/aumix/%{name}-%{version}.tar.bz2
-# Source0-md5:	dc3fc7209752207c23e7c94ab886b340
+Source0:	http://www.jpj.net/~trevor/aumix/releases/%{name}-%{version}.tar.bz2
+# Source0-md5:	34f28ae1c94fc5298e8bb2688c4b3a20
 Source1:	%{name}.init
 Source2:	%{name}.sysconfig
 Source3:	%{name}.desktop
 Source4:	%{name}.png
 Patch0:		%{name}-home_etc.patch
 Patch1:		%{name}-x%{name}.patch
-Patch2:		%{name}-ac250.patch
 URL:		http://www.jpj.net/~trevor/aumix.html
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -107,10 +106,9 @@ systemu.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
 
 %build
-#%%{__gettextize}
+%{__gettextize}
 %{__aclocal}
 %{__autoconf}
 %{__automake}
