@@ -24,7 +24,7 @@ Patch1:		%{name}-x%{name}.patch
 URL:		http://www.jpj.net/~trevor/aumix.html
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	gpm-devel
 BuildRequires:	ncurses-devel >= 5.0
 Obsoletes:	aumix-gtk
