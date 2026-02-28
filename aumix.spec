@@ -10,7 +10,7 @@ Summary(ru.UTF-8):	Аудио микшер на базе библиотеки cu
 Summary(uk.UTF-8):	Аудіо мікшер, базований на біблиотеці curses
 Name:		aumix
 Version:	2.9.1
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		Applications/Sound
 Source0:	http://www.jpj.net/~trevor/aumix/releases/%{name}-%{version}.tar.bz2
