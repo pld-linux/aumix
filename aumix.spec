@@ -10,7 +10,7 @@ Summary(ru.UTF-8):	Аудио микшер на базе библиотеки cu
 Summary(uk.UTF-8):	Аудіо мікшер, базований на біблиотеці curses
 Name:		aumix
 Version:	2.9.1
-Release:	2
+Release:	3
 License:	GPL v2+
 Group:		Applications/Sound
 Source0:	http://www.jpj.net/~trevor/aumix/releases/%{name}-%{version}.tar.bz2
@@ -19,8 +19,9 @@ Source1:	%{name}.init
 Source2:	%{name}.sysconfig
 Source3:	%{name}.desktop
 Source4:	%{name}.png
-Patch0:		%{name}-home_etc.patch
-Patch1:		%{name}-x%{name}.patch
+Patch0:		%{name}-x%{name}.patch
+Patch1:		%{name}-fno-common.patch
+Patch2:		%{name}-xdg-config.patch
 URL:		http://www.jpj.net/~trevor/aumix.html
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -106,11 +107,13 @@ systemu.
 %setup -q
 %patch -P0 -p1
 %patch -P1 -p1
+%patch -P2 -p1
 
 %build
 %{__gettextize}
-%{__aclocal}
+%{__aclocal} -I m4
 %{__autoconf}
+%{__autoheader}
 %{__automake}
 
 CPPFLAGS="-I/usr/include/ncurses"
